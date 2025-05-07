@@ -6,7 +6,7 @@ import java.util.*;
 
 public class PostDAO {
 
-    private final String url = "jdbc:postgresql://localhost:5432/proyectito";
+    private final String url = "jdbc:postgresql://localhost:5432/ProyectoDAW";
     private final String user = "postgres";
     private final String password = "Cabj970423";
 

@@ -4,49 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80a453f9-f646-49db-8058-d150d5b1a344" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../DemoWebApp/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DemoWebApp/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DemoWebApp/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DemoWebApp/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Act3POO2/src/downloader/ImageDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Act3POO2/src/filters/BlackAndWhiteFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Act3POO2/src/filters/SepiaFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Act3POO2/src/filters/SharpenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Act3POO2/src/processor/ImageProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Act3POO2/urls.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/dao/ForumThreadDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/dao/PostDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/dao/UsuarioDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/model/ForumThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/model/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/model/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/CrearHiloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/CrearPostServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/EditarUsuarioServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/EliminarPostServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/ForoServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/RegistroUsuarioServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/java/com/proyectito/servlet/VerPostsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/editar_usuario.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/formulario.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/foro.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/images/Desenmascarar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/images/Foro.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/images/Registro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/images/inicio.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/logout.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../proyectito/src/main/webapp/ver_posts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="80a453f9-f646-49db-8058-d150d5b1a344" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +19,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -71,7 +29,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/xXc4n3l0Xx/DAW.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/xXc4n3l0Xx/ProyectoDAW.git&quot;,
     &quot;accountId&quot;: &quot;6016352e-7c8b-4c61-86c4-85f4f7b35387&quot;
   }
 }</component>
@@ -93,7 +51,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/j0s3c/git_workshop/demo/AppDAW&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/j0s3c/OneDrive/Documentos/ProyectoDAW/AppDAW&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -189,6 +147,10 @@
       <workItem from="1746563612084" duration="3388000" />
       <workItem from="1746575729480" duration="60000" />
       <workItem from="1746575798393" duration="5000" />
+      <workItem from="1746578007834" duration="359000" />
+      <workItem from="1746580621175" duration="1182000" />
+      <workItem from="1746582829202" duration="180000" />
+      <workItem from="1746634464488" duration="1804000" />
     </task>
     <servers />
   </component>

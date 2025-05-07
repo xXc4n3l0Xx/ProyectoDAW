@@ -20,6 +20,7 @@ public class RegistroUsuarioServlet extends HttpServlet {
         usuario.setContrasena(request.getParameter("contrasena"));
         usuario.setAvatar(request.getParameter("avatar"));
         usuario.setFechaRegistro(new Timestamp(System.currentTimeMillis()));
+        usuario.setIdEstado(1);
 
         UsuarioDAO dao = new UsuarioDAO();
         try {
