@@ -1,22 +1,34 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
 
 config/name="GoDAWt"
-run/main_scene="uid://8hdfwb07ubka"
+run/main_scene="uid://sxcleyw27unb"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
+LevelManager="*res://_globals/level_manager.gd"
 PlayerManager="*res://_globals/player_manager.gd"
+PauseMenu="*res://scenes/ui/pause_menu/pause_menu.tscn"
+SceneTransition="*res://scenes/levels/scene_transition.tscn"
+DeathMenu="*res://scenes/ui/death_menu/death_menu.tscn"
 
 [display]
 
 window/size/viewport_width=950
-window/size/viewport_height=400
+window/size/viewport_height=600
 window/size/window_width_override=1140
-window/size/window_height_override=480
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
@@ -56,6 +68,11 @@ melee={
 throw={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":106,"location":0,"echo":false,"script":null)
+]
+}
+pause={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

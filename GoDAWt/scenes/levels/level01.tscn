@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=4 uid="uid://8hdfwb07ubka"]
+
+[ext_resource type="Script" uid="uid://cxwuxir6hpvbu" path="res://scenes/levels/level.gd" id="1_85lfi"]
+[ext_resource type="PackedScene" uid="uid://c2jdglf1he6jn" path="res://scenes/levels/world_boundary.tscn" id="2_3haoj"]
+[ext_resource type="PackedScene" uid="uid://ifx33klnyqpk" path="res://scenes/tilemaps/background.tscn" id="3_bvpmc"]
+[ext_resource type="PackedScene" uid="uid://djikjeyds8d01" path="res://scenes/characters/player/player.tscn" id="4_8ymoh"]
+[ext_resource type="PackedScene" uid="uid://dvndeaevnx617" path="res://scenes/tilemaps/ground.tscn" id="5_v21wg"]
+[ext_resource type="PackedScene" uid="uid://6gf85qxsdyk2" path="res://scenes/levels/thorns.tscn" id="6_ufwwg"]
+[ext_resource type="PackedScene" uid="uid://dwwne5fa7e6fi" path="res://scenes/levels/spawn.tscn" id="7_3yqkj"]
+[ext_resource type="PackedScene" uid="uid://bwux5hxh1r3dw" path="res://scenes/characters/enemies/mariposa.tscn" id="8_if0f4"]
+[ext_resource type="PackedScene" uid="uid://dhu5awva4kjob" path="res://scenes/level_transition.tscn" id="9_ylsda"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, 222)
+script = ExtResource("1_85lfi")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_3haoj")]
+
+[node name="Background" parent="." instance=ExtResource("3_bvpmc")]
+position = Vector2(-7, -220)
+
+[node name="Ground" parent="." instance=ExtResource("5_v21wg")]
+position = Vector2(2, 0)
+tile_map_data = PackedByteArray("AAABAAYAAAACAAkAAAACAAYAAAACAAkAAAADAAYAAAACAAkAAAAEAAYAAAADAAkAAAAAAAYAAAABAAkAAAAJAAwAAAABAAkAAAAKAAwAAAACAAkAAAALAAwAAAADAAkAAAAUABEAAAABAAkAAAAVABEAAAACAAkAAAAWABEAAAACAAkAAAAfAA0AAAABAAkAAAAgAA0AAAACAAkAAAAhAA0AAAADAAkAAAAvAA8AAAABAAkAAAAwAA8AAAACAAkAAAAxAA8AAAADAAkAAAAsABcAAAABAAkAAAAtABcAAAACAAkAAAAuABcAAAACAAkAAAAvABcAAAACAAkAAAAwABcAAAACAAkAAAAxABcAAAACAAkAAAAyABcAAAACAAkAAAAzABcAAAACAAkAAAA0ABcAAAACAAkAAAA1ABcAAAACAAkAAAA2ABcAAAACAAkAAAA3ABcAAAACAAkAAAA4ABcAAAADAAkAAAAfABcAAAABAAkAAAAgABcAAAACAAkAAAAhABcAAAADAAkAAAA+ABQAAAABAAkAAAA/ABQAAAACAAkAAABAABQAAAADAAkAAAA1ABEAAAABAAkAAAA2ABEAAAACAAkAAAA3ABEAAAADAAkAAAA+AA4AAAABAAkAAAA/AA4AAAACAAkAAABAAA4AAAADAAkAAAA4AAoAAAABAAkAAAA5AAoAAAACAAkAAAA6AAoAAAADAAkAAABBAAcAAAABAAkAAABCAAcAAAACAAkAAABDAAcAAAACAAkAAABQAAwAAAABAAkAAABRAAwAAAACAAkAAABSAAwAAAACAAkAAABeAA8AAAABAAkAAABfAA8AAAACAAkAAABgAA8AAAADAAkAAABpABgAAAABAAkAAABqABgAAAACAAkAAABrABgAAAACAAkAAAAXABEAAAADAAkAAABEAAcAAAADAAkAAABTAAwAAAADAAkAAABsABgAAAADAAkAAAC1ABEAAAACAAkAAAC2ABEAAAACAAkAAAC3ABEAAAACAAkAAAC4ABEAAAADAAkAAAC0ABEAAAABAAkAAADVAAYAAAABAAkAAADWAAYAAAACAAkAAADXAAYAAAACAAkAAADYAAYAAAACAAkAAADZAAYAAAACAAkAAADaAAYAAAADAAkAAABzABMAAAACAAkAAAB0ABMAAAACAAkAAAB1ABMAAAADAAkAAAByABMAAAABAAkAAAB8AA4AAAACAAkAAAB9AA4AAAADAAkAAAB6AA4AAAABAAkAAAB7AA4AAAACAAkAAACDAAoAAAABAAkAAACEAAoAAAACAAkAAACFAAoAAAACAAkAAACGAAoAAAADAAkAAACWABIAAAACAAkAAACXABIAAAACAAkAAACYABIAAAACAAkAAACZABIAAAACAAkAAACaABIAAAACAAkAAACbABIAAAADAAkAAACqABgAAAACAAkAAACrABgAAAACAAkAAACsABgAAAACAAkAAACtABgAAAACAAkAAACuABgAAAACAAkAAACvABgAAAADAAkAAACTABIAAAABAAkAAACUABIAAAACAAkAAACVABIAAAACAAkAAACnABgAAAABAAkAAACoABgAAAACAAkAAACpABgAAAACAAkAAAC2ABYAAAABAAkAAAC3ABYAAAACAAkAAAC4ABYAAAACAAkAAAC5ABYAAAACAAkAAAC6ABYAAAADAAkAAADAAA0AAAACAAkAAADBAA0AAAACAAkAAADCAA0AAAACAAkAAADDAA0AAAACAAkAAADEAA0AAAADAAkAAAC/AA0AAAABAAkAAADOAAsAAAACAAkAAADPAAsAAAACAAkAAADQAAsAAAACAAkAAADRAAsAAAACAAkAAADSAAsAAAADAAkAAADNAAsAAAABAAkAAAAAABAAAAABAAkAAAABABAAAAACAAkAAAACABAAAAACAAkAAAADABAAAAADAAkAAAAIABQAAAABAAkAAAAJABQAAAACAAkAAAAKABQAAAACAAkAAAALABQAAAADAAkAAAA=")
+
+[node name="Spawn" parent="." instance=ExtResource("7_3yqkj")]
+position = Vector2(41, 66)
+
+[node name="Spawn2" parent="." instance=ExtResource("7_3yqkj")]
+position = Vector2(3459, 67)
+
+[node name="Player" parent="." instance=ExtResource("4_8ymoh")]
+position = Vector2(44, 59)
+collision_mask = 256
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_3haoj")]
+
+[node name="Thorns" parent="." instance=ExtResource("6_ufwwg")]
+position = Vector2(709, 551)
+
+[node name="Thorns2" parent="." instance=ExtResource("6_ufwwg")]
+position = Vector2(2152, 551)
+
+[node name="Thorns3" parent="." instance=ExtResource("6_ufwwg")]
+position = Vector2(3595, 551)
+
+[node name="Mariposa" parent="." instance=ExtResource("8_if0f4")]
+position = Vector2(1725, 50)
+
+[node name="LevelTransition" parent="." instance=ExtResource("9_ylsda")]
+position = Vector2(3459, 55)
+next_level_path = "uid://b83mk7pxhpf1l"

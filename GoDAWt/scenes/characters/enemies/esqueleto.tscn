@@ -124,13 +124,15 @@ height = 48.0
 height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v074c"]
-size = Vector2(636, 38)
+size = Vector2(412, 89)
 
 [node name="Esqueleto" type="CharacterBody2D" groups=["Enemies"]]
 position = Vector2(0, -4)
 collision_layer = 16
 collision_mask = 256
 script = ExtResource("1_xf02v")
+attack_range = 40.0
+move_speed = 120.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -14)
@@ -141,7 +143,6 @@ vframes = 6
 frame = 5
 
 [node name="AttackHurtbox" type="Area2D" parent="Sprite2D"]
-visible = false
 collision_layer = 16
 script = ExtResource("3_jxydw")
 metadata/_custom_type_script = "uid://b3vvn4d0nl8s0"
@@ -164,7 +165,6 @@ position = Vector2(-3.5, -7)
 shape = SubResource("RectangleShape2D_jxydw")
 
 [node name="Hitbox" parent="." instance=ExtResource("3_5sijq")]
-visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
@@ -181,11 +181,10 @@ shape = SubResource("CapsuleShape2D_5sijq")
 debug_color = Color(0.88228, 0.000340573, 0.816701, 0.42)
 
 [node name="DetectionComponent" parent="." instance=ExtResource("5_fqr8l")]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionComponent"]
-position = Vector2(0, -9)
+position = Vector2(0, -34.5)
 shape = SubResource("RectangleShape2D_v074c")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

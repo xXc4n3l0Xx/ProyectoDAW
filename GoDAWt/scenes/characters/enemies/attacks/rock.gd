@@ -13,7 +13,7 @@ var origin_position: Vector2
 
 
 func _ready() -> void:
-	hurtbox.damage = 3
+	hurtbox.damage = 2
 	hurtbox.connect("area_entered", Callable(self, "_on_hurtbox_area_entered"))
 
 

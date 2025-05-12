@@ -6,14 +6,16 @@ class_name BasePlayer extends CharacterBody2D
 @onready var hitbox: Hitbox = $Hitbox
 @onready var bullets: Node = $Bullets
 @onready var punch: Node = $Punch
-@onready var death_sound: AudioStreamPlayer2D = $Sounds/DeathSound
-@onready var gun_sound: AudioStreamPlayer2D = $Sounds/GunSound
-@onready var punch_sound: AudioStreamPlayer2D = $Sounds/PunchSound
-@onready var jump_sound: AudioStreamPlayer2D = $"Sounds/JumpSound"
-@onready var laugh_sound: AudioStreamPlayer2D = $Sounds/LaughSound
+@onready var death_sound: AudioStreamPlayer = $Sounds/DeathSound
+@onready var gun_sound: AudioStreamPlayer = $Sounds/GunSound
+@onready var punch_sound: AudioStreamPlayer = $Sounds/PunchSound
+@onready var jump_sound: AudioStreamPlayer = $"Sounds/JumpSound"
+@onready var laugh_sound: AudioStreamPlayer = $Sounds/LaughSound
 @onready var thorns_ray: RayCast2D = $ThornsRay
 @onready var knockback_state: KnockbackState = $StateMachine/KnockbackState
-@onready var hurt_sound: AudioStreamPlayer2D = $Sounds/HurtSound
+@onready var hurt_sound: AudioStreamPlayer = $Sounds/HurtSound
+@onready var health_bar: TextureProgressBar = $HealthCanvasLayer/HealthBar
+@onready var diamonds_bar: TextureProgressBar = $DiamondsCanvasBar/DiamondsBar
 
 
 @export_category("Physics")
@@ -26,6 +28,7 @@ class_name BasePlayer extends CharacterBody2D
 @export var max_bullets: int = 3
 
 @export_category("Health")
+@export var max_health: int = 10
 @export var health: int = 10
 
 var direction: float
@@ -33,12 +36,20 @@ var is_dead: bool = false
 var is_knocked_back: bool = false
 var is_invulnerable: bool = false
 var invulnerable_timer: float = 0.0
+var max_diamonds: int = 5
+var diamonds: int = 0
 signal died
 
 
 func _ready() -> void:
 	hitbox.take_damage.connect(_on_take_damage)
-
+	
+	health_bar.value = health
+	health_bar.max_value = max_health
+	diamonds = 0
+	diamonds_bar.value = diamonds
+	diamonds_bar.max_value = max_diamonds
+	
 func _process(_delta: float) -> void:
 	direction = Input.get_axis("left", "right")
 	if direction:
@@ -60,6 +71,7 @@ func _physics_process(delta: float) -> void:
 
 func force_die() -> void:
 	if not is_dead:
+		LevelManager.saved_health = health
 		health = 0
 		die()
 
@@ -77,6 +89,7 @@ func _on_take_damage(amount: int) -> void:
 		return
 
 	hurt_sound.play()
+	health_bar.value -= amount
 	health -= amount
 	print(health)
 	if health <= 0:
@@ -86,19 +99,19 @@ func _on_take_damage(amount: int) -> void:
 		knockback_state.enter()
 
 
-
 func die() -> void:
 	is_dead = true
 	set_physics_process(false)
+	died.emit()
 	visible = false
+	PlayerManager.player = self
+	PlayerManager.player_spawned.emit(self)
 
 	if hitbox:
 		hitbox.set_deferred("monitoring", false)
 		hitbox.set_deferred("monitorable", false)
 		hitbox.set_collision_layer_value(1, false)
 		hitbox.set_collision_mask_value(1, false)
-	emit_signal("died")
 	laugh_sound.play()
 	death_sound.play()
 	await laugh_sound.finished
-	queue_free()

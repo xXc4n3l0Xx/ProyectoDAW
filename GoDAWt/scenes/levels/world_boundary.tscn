@@ -9,7 +9,7 @@ distance = -4.37114e-08
 collision_layer = 256
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(949.851, 0.0474129)
+position = Vector2(4000, 0.047)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_ripds")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://djikjeyds8d01"]
+[gd_scene load_steps=33 format=3 uid="uid://djikjeyds8d01"]
 
 [ext_resource type="Texture2D" uid="uid://boypscqu4h1uf" path="res://assets/characters/alucardfinal.png" id="1_7uws0"]
 [ext_resource type="Script" uid="uid://iu5fkql1lte8" path="res://scenes/characters/player/player.gd" id="1_t61fv"]
@@ -17,6 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://cqfm1pxp8td2g" path="res://assets/sounds/Jumps.wav" id="15_4kqyw"]
 [ext_resource type="AudioStream" uid="uid://djant6c5e4xsv" path="res://assets/sounds/Laugh.wav" id="16_i1nod"]
 [ext_resource type="AudioStream" uid="uid://b28btstrgc4a8" path="res://assets/sounds/Hurt.wav" id="17_svuau"]
+[ext_resource type="Texture2D" uid="uid://r778j0xbh5v4" path="res://assets/characters/healtbars/vacio.png" id="18_ro20i"]
+[ext_resource type="Texture2D" uid="uid://c0c5fvdrs4qlh" path="res://assets/characters/healtbars/lleno.png" id="19_8y75b"]
+[ext_resource type="Texture2D" uid="uid://be0fttwrqbyl0" path="res://assets/collect/dlleno.png" id="20_tebod"]
+[ext_resource type="Texture2D" uid="uid://dt20qoput54us" path="res://assets/collect/dvacio.png" id="21_6nfx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t61fv"]
 size = Vector2(22, 46)
@@ -207,8 +211,8 @@ position = Vector2(0, -10)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 950
-limit_bottom = 400
+limit_right = 4000
+limit_bottom = 762
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_hss88")
@@ -251,24 +255,27 @@ shape = SubResource("CapsuleShape2D_djydg")
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="DeathSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("11_hv5x3")
 
-[node name="GunSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="GunSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("11_blysn")
+volume_db = -20.0
 
-[node name="PunchSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="PunchSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("14_4kqyw")
+volume_db = -10.0
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="JumpSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("15_4kqyw")
+volume_db = -10.0
 max_polyphony = 4
 
-[node name="LaughSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="LaughSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("16_i1nod")
 max_polyphony = 4
 
-[node name="HurtSound" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="HurtSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("17_svuau")
 max_polyphony = 4
 
@@ -276,3 +283,30 @@ max_polyphony = 4
 position = Vector2(0, -10)
 collision_mask = 8
 collide_with_areas = true
+
+[node name="HealthCanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="HealthBar" type="TextureProgressBar" parent="HealthCanvasLayer"]
+offset_left = 251.333
+offset_top = 4.66667
+offset_right = 312.333
+offset_bottom = 44.6667
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("18_ro20i")
+texture_progress = ExtResource("19_8y75b")
+
+[node name="DiamondsCanvasBar" type="CanvasLayer" parent="."]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="DiamondsBar" type="TextureProgressBar" parent="DiamondsCanvasBar"]
+offset_left = 183.0
+offset_top = 5.33333
+offset_right = 248.0
+offset_bottom = 45.3333
+max_value = 5.0
+texture_under = ExtResource("21_6nfx3")
+texture_progress = ExtResource("20_tebod")
