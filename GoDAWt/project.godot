@@ -13,6 +13,7 @@ config_version=5
 config/name="GoDAWt"
 run/main_scene="uid://sxcleyw27unb"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=45
 config/icon="res://icon.svg"
 
 [autoload]

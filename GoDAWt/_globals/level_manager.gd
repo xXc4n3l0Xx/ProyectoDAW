@@ -8,6 +8,7 @@ var next_level: Level
 const STARTING_LEVEL_PATH: String = "res://scenes/levels/level00.tscn"
 
 var saved_health: int = 10
+var saved_score: int = 0
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -17,6 +18,7 @@ func _ready() -> void:
 func change_level(level_path: String) -> void:
 	if not is_valid_level_path(level_path):
 		return
+	saved_score = PlayerManager.player.score
 	if PlayerManager.player.health > 0:
 		saved_health = PlayerManager.player.health
 

@@ -19,6 +19,8 @@ func collect(_player: Player) -> void:
 	collected.emit()
 	audio_stream_player.play()
 	PlayerManager.player.diamonds += 1
+	PlayerManager.player.score += 1107
+	PlayerManager.player.update_score_label()
 	PlayerManager.player.diamonds_bar.value = PlayerManager.player.diamonds
 	collision_shape.set_deferred("disabled", true)
 	sprite.visible = false

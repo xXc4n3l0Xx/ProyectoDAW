@@ -14,3 +14,6 @@ func _ready() -> void:
 	
 	player.diamonds = 0
 	player.diamonds_bar.value = 0
+	
+	player.score = LevelManager.saved_score
+	player.update_score_label()

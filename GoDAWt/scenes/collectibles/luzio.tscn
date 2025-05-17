@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbwb5lvh67c25"]
+
+[ext_resource type="Script" uid="uid://i20retk5uo5o" path="res://scenes/collectibles/luzio.gd" id="1_wmppx"]
+[ext_resource type="Texture2D" uid="uid://bo38mu7a5yg87" path="res://assets/collect/Luzio.png" id="2_ru2jb"]
+[ext_resource type="AudioStream" uid="uid://dj6re4fjnwhh8" path="res://assets/sounds/player/Luzio.mp3" id="3_wmppx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nylcb"]
+radius = 12.0
+height = 53.3333
+
+[node name="Luzio" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_wmppx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ru2jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.33333)
+shape = SubResource("CapsuleShape2D_nylcb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wmppx")
+volume_db = 10.0

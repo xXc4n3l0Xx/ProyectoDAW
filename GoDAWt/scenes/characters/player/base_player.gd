@@ -16,6 +16,7 @@ class_name BasePlayer extends CharacterBody2D
 @onready var hurt_sound: AudioStreamPlayer = $Sounds/HurtSound
 @onready var health_bar: TextureProgressBar = $HealthCanvasLayer/HealthBar
 @onready var diamonds_bar: TextureProgressBar = $DiamondsCanvasBar/DiamondsBar
+@onready var score_label: Label = $PointsCanvas/ScoreLabel
 
 
 @export_category("Physics")
@@ -38,18 +39,20 @@ var is_invulnerable: bool = false
 var invulnerable_timer: float = 0.0
 var max_diamonds: int = 5
 var diamonds: int = 0
+var score: int = 0
 signal died
 
 
 func _ready() -> void:
 	hitbox.take_damage.connect(_on_take_damage)
-	
+
 	health_bar.value = health
 	health_bar.max_value = max_health
 	diamonds = 0
 	diamonds_bar.value = diamonds
 	diamonds_bar.max_value = max_diamonds
-	
+	update_score_label()
+
 func _process(_delta: float) -> void:
 	direction = Input.get_axis("left", "right")
 	if direction:
@@ -98,12 +101,18 @@ func _on_take_damage(amount: int) -> void:
 	else:
 		knockback_state.enter()
 
+func update_score_label() -> void:
+	score_label.text = "Score: %d" % score
+
+
 
 func die() -> void:
 	is_dead = true
 	set_physics_process(false)
 	died.emit()
 	visible = false
+	PlayerManager.player.score -= 2234
+	PlayerManager.player.update_score_label()
 	PlayerManager.player = self
 	PlayerManager.player_spawned.emit(self)
 

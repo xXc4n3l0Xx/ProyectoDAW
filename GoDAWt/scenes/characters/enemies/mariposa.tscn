@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://lq0rn34jcibf" path="res://scenes/components/hitbox/hitbox.tscn" id="2_ltj32"]
 [ext_resource type="PackedScene" uid="uid://bdx1u0tl2unut" path="res://scenes/components/hurtbox/hurtbox.tscn" id="3_jf6ix"]
 [ext_resource type="Script" uid="uid://brd3yanshlp6h" path="res://scenes/characters/enemies/mariposa.gd" id="4_ltj32"]
-[ext_resource type="AudioStream" uid="uid://dv0qdqrs2ip66" path="res://assets/sounds/EnemyDeath.wav" id="5_jf6ix"]
-[ext_resource type="AudioStream" uid="uid://b74fklx136r5s" path="res://assets/sounds/Butterfly.wav" id="6_rmfqj"]
+[ext_resource type="AudioStream" uid="uid://dv0qdqrs2ip66" path="res://assets/sounds/enemies/EnemyDeath.wav" id="5_jf6ix"]
+[ext_resource type="AudioStream" uid="uid://b74fklx136r5s" path="res://assets/sounds/enemies/Butterfly.wav" id="6_rmfqj"]
 
 [sub_resource type="Animation" id="Animation_ltj32"]
 length = 0.001
@@ -86,9 +86,9 @@ shape = SubResource("CapsuleShape2D_ltj32")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_jf6ix")
-volume_db = 24.0
+volume_db = 10.0
 
 [node name="FlySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rmfqj")
-volume_db = 20.0
+volume_db = 10.0
 autoplay = true

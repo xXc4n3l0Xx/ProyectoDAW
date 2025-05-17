@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bj2hq57p0be28" path="res://assets/enemies/esquele.png" id="1_1ngy1"]
 [ext_resource type="Script" uid="uid://bk5cr8j6yjd20" path="res://scenes/characters/enemies/attacks/rock.gd" id="1_mdxtn"]
 [ext_resource type="PackedScene" uid="uid://bdx1u0tl2unut" path="res://scenes/components/hurtbox/hurtbox.tscn" id="3_xpu5m"]
-[ext_resource type="AudioStream" uid="uid://ctorv4sqlw7dm" path="res://assets/sounds/Bonk.wav" id="4_rya3p"]
+[ext_resource type="AudioStream" uid="uid://ctorv4sqlw7dm" path="res://assets/sounds/enemies/Bonk.wav" id="4_rya3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rya3p"]
 atlas = ExtResource("1_1ngy1")

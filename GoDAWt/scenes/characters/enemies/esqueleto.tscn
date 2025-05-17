@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b3vvn4d0nl8s0" path="res://scenes/components/hurtbox/hurtbox.gd" id="3_jxydw"]
 [ext_resource type="PackedScene" uid="uid://bdx1u0tl2unut" path="res://scenes/components/hurtbox/hurtbox.tscn" id="4_fqr8l"]
 [ext_resource type="PackedScene" uid="uid://bvpq2rjx6maer" path="res://scenes/components/detection/detection_component.tscn" id="5_fqr8l"]
-[ext_resource type="AudioStream" uid="uid://dv0qdqrs2ip66" path="res://assets/sounds/EnemyDeath.wav" id="7_fjaur"]
+[ext_resource type="AudioStream" uid="uid://dv0qdqrs2ip66" path="res://assets/sounds/enemies/EnemyDeath.wav" id="7_fjaur"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v074c"]
 radius = 23.0868
@@ -195,4 +195,4 @@ collision_mask = 256
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -5)
 stream = ExtResource("7_fjaur")
-volume_db = 24.0
+volume_db = 10.0

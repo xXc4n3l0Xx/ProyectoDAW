@@ -11,12 +11,12 @@
 [ext_resource type="Script" uid="uid://58isvj4egqen" path="res://scenes/characters/player/state/throw_state.gd" id="9_3xnwo"]
 [ext_resource type="PackedScene" uid="uid://lq0rn34jcibf" path="res://scenes/components/hitbox/hitbox.tscn" id="10_3xnwo"]
 [ext_resource type="Script" uid="uid://cbwc2mrvbhbck" path="res://scenes/characters/player/state/knockback_state.gd" id="10_ykrpk"]
-[ext_resource type="AudioStream" uid="uid://ddjvarfh6ks44" path="res://assets/sounds/Shoot.wav" id="11_blysn"]
-[ext_resource type="AudioStream" uid="uid://ybnkj8xr5wsp" path="res://assets/sounds/PlayerDeath.wav" id="11_hv5x3"]
-[ext_resource type="AudioStream" uid="uid://d14uji7ty00cy" path="res://assets/sounds/Punches.wav" id="14_4kqyw"]
-[ext_resource type="AudioStream" uid="uid://cqfm1pxp8td2g" path="res://assets/sounds/Jumps.wav" id="15_4kqyw"]
-[ext_resource type="AudioStream" uid="uid://djant6c5e4xsv" path="res://assets/sounds/Laugh.wav" id="16_i1nod"]
-[ext_resource type="AudioStream" uid="uid://b28btstrgc4a8" path="res://assets/sounds/Hurt.wav" id="17_svuau"]
+[ext_resource type="AudioStream" uid="uid://ddjvarfh6ks44" path="res://assets/sounds/player/Shoot.wav" id="11_blysn"]
+[ext_resource type="AudioStream" uid="uid://ybnkj8xr5wsp" path="res://assets/sounds/player/PlayerDeath.wav" id="11_hv5x3"]
+[ext_resource type="AudioStream" uid="uid://d14uji7ty00cy" path="res://assets/sounds/player/Punches.wav" id="14_4kqyw"]
+[ext_resource type="AudioStream" uid="uid://cqfm1pxp8td2g" path="res://assets/sounds/player/Jumps.wav" id="15_4kqyw"]
+[ext_resource type="AudioStream" uid="uid://djant6c5e4xsv" path="res://assets/sounds/player/Laugh.wav" id="16_i1nod"]
+[ext_resource type="AudioStream" uid="uid://b28btstrgc4a8" path="res://assets/sounds/player/Hurt.wav" id="17_svuau"]
 [ext_resource type="Texture2D" uid="uid://r778j0xbh5v4" path="res://assets/characters/healtbars/vacio.png" id="18_ro20i"]
 [ext_resource type="Texture2D" uid="uid://c0c5fvdrs4qlh" path="res://assets/characters/healtbars/lleno.png" id="19_8y75b"]
 [ext_resource type="Texture2D" uid="uid://be0fttwrqbyl0" path="res://assets/collect/dlleno.png" id="20_tebod"]
@@ -310,3 +310,14 @@ offset_bottom = 45.3333
 max_value = 5.0
 texture_under = ExtResource("21_6nfx3")
 texture_progress = ExtResource("20_tebod")
+
+[node name="PointsCanvas" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="PointsCanvas"]
+offset_left = 328.0
+offset_top = 4.0
+offset_right = 458.0
+offset_bottom = 46.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Score = 0"
