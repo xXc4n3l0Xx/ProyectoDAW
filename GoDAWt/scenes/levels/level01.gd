@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player: BasePlayer = $Player
 @onready var level_transition = $LevelTransition
+@onready var level_transition_2 = $LevelTransition2
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
@@ -20,6 +21,7 @@ func _ready() -> void:
 	PlayerManager.player_spawned.emit(player)
 
 	level_transition.body_entered.connect(_on_portal_entered)
+	level_transition_2.body_entered.connect(_on_portal_entered)
 
 func _on_portal_entered(body):
 	if body is BasePlayer:

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { LoginRequest } from '../models/login-request.model';
 import { AuthResponse } from '../models/auth-response.model';
@@ -18,6 +18,9 @@ export class HomeComponent {
   contrasena: string = '';
   error: string = '';
 
+  mensajeExpiracion: string = '';
+  mensajeExpiracionVisible: boolean = false;
+
   topJugadores = [
     { nombre: 'Marvin', puntuacion: 1200 },
     { nombre: 'Ana', puntuacion: 950 },
@@ -26,11 +29,26 @@ export class HomeComponent {
     { nombre: 'Valeria', puntuacion: 800 }
   ];
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     const token = this.authService.obtenerToken();
-    if (token) {
+    if (token && !this.authService.isTokenExpirado()) {
       this.router.navigate(['/dashboard']);
     }
+
+    this.route.queryParams.subscribe(params => {
+      if (params['expirado'] === '1') {
+        this.mensajeExpiracion = 'Tu sesión ha expirado. Por favor, inicia sesión de nuevo.';
+        this.mensajeExpiracionVisible = true;
+
+        setTimeout(() => {
+          this.mensajeExpiracionVisible = false;
+        }, 5000);
+      }
+    });
   }
 
   onLogin() {

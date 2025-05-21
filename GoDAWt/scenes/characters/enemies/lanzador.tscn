@@ -107,13 +107,11 @@ shape = SubResource("RectangleShape2D_jxydw")
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 position = Vector2(-5, -6)
 shape = SubResource("CapsuleShape2D_w5wyj")
 debug_color = Color(0.998753, 0, 0.133554, 0.42)
 
 [node name="Hurtbox" parent="." instance=ExtResource("3_at3k8")]
-visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -125,7 +123,6 @@ debug_color = Color(0.88228, 0.000340573, 0.816701, 0.42)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionComponent"]
-visible = false
 position = Vector2(0, 162.5)
 shape = SubResource("RectangleShape2D_v074c")
 
@@ -135,3 +132,7 @@ position = Vector2(-14.4998, -43.4998)
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_w184h")
 volume_db = 10.0
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-0.5625, 164.625)
+scale = Vector2(18.2563, 21.1375)

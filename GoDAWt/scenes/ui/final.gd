@@ -3,7 +3,6 @@ extends CanvasLayer
 @onready var images = [
 	$TextureRect,
 ]
-
 @onready var final_sound = $AudioStreamPlayer
 
 var current_index = 0

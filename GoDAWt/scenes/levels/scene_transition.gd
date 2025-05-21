@@ -7,7 +7,6 @@ extends CanvasLayer
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-
 func fade_out() -> bool:
 	animation_player.play("fade_out")
 	await animation_player.animation_finished

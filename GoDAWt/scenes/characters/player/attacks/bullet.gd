@@ -8,7 +8,7 @@ var direction: int = 1
 func _ready() -> void:
 	hurtbox.damage = 4
 	hurtbox.connect("area_entered", Callable(self, "_on_hurtbox_area_entered"))
-	
+	get_tree().create_timer(0.6).timeout.connect(_destroy)
 
 func _process(delta: float) -> void:
 	position.x += bullet_speed * delta * direction

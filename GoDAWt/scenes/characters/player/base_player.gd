@@ -115,9 +115,10 @@ func die() -> void:
 
 	score = clamp(GameState.saved_score - 1234, 0, 999999)
 	update_score_label()
-	report_score()
 	GameState.saved_score = score
 	GameState.saved_health = max_health
+	report_score()
+
 
 	PlayerManager.player = self
 	PlayerManager.player_spawned.emit(self)

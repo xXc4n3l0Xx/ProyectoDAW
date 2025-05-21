@@ -196,3 +196,5 @@ collision_mask = 256
 position = Vector2(0, -5)
 stream = ExtResource("7_fjaur")
 volume_db = 10.0
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

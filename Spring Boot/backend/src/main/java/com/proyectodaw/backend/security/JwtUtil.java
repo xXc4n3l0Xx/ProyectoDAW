@@ -11,8 +11,7 @@ import java.util.Date;
 public class JwtUtil {
 
     private final String secret = "12345678910111213141516171819202122232425";
-    private final long expiracionMs = 1000 * 60 * 60; // 1 hora
-
+    private final long expiracionMs = 1000 * 60 * 60 * 2;
     private Key getKey() {
         return Keys.hmacShaKeyFor(secret.getBytes());
     }

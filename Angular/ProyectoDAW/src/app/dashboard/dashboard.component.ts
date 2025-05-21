@@ -21,22 +21,40 @@ export class DashboardComponent {
     const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
       this.usuario = JSON.parse(usuarioGuardado);
-    } else {
-      this.router.navigate(['/']);
+    }
+
+    if (this.authService.isTokenExpirado()) {
+      this.authService.cerrarSesion();
+      this.router.navigate(['/'], { queryParams: { expirado: '1' } });
     }
   }
 
   jugar() {
-  window.location.href = '/assets/DAWdventures/GoDAWt.html';
+  if (this.authService.isTokenExpirado()) {
+    this.authService.cerrarSesion();
+    this.router.navigate(['/'], { queryParams: { expirado: '1' } });
+  } else {
+    window.open('/assets/DAWdventures/GoDAWt.html', '_blank');
+  }
 }
 
 
   irAlForo() {
-    this.router.navigate(['/foro']);
+    if (this.authService.isTokenExpirado()) {
+      this.authService.cerrarSesion();
+      this.router.navigate(['/'], { queryParams: { expirado: '1' } });
+    } else {
+      this.router.navigate(['/foro']);
+    }
   }
 
   editarCuenta() {
-    this.router.navigate(['/perfil']);
+    if (this.authService.isTokenExpirado()) {
+      this.authService.cerrarSesion();
+      this.router.navigate(['/'], { queryParams: { expirado: '1' } });
+    } else {
+      this.router.navigate(['/perfil']);
+    }
   }
 
   cerrarSesion() {

@@ -1,7 +1,7 @@
 .fondo {
   height: 100vh;
   width: 100vw;
-  background-image: url('/assets/inicio.jpg');
+  background-image: url('/assets/dash.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

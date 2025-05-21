@@ -11,11 +11,13 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     const token = this.authService.obtenerToken();
-    if (token) {
-      return true;
-    } else {
+
+    if (!token || this.authService.isTokenExpirado()) {
+      this.authService.cerrarSesion();
       this.router.navigate(['/']);
       return false;
     }
+
+    return true;
   }
 }

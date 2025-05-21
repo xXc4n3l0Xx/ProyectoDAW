@@ -7,7 +7,7 @@
 html, body {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
 }
 
@@ -114,4 +114,30 @@ html, body {
 
 .registro-btn:hover {
   background-color: #1976D2;
+}
+
+
+.alerta-expiracion {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 0, 0, 0.9);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 9999;
+  text-align: center;
+  animation: fadeOut 1s ease-out forwards;
+  animation-delay: 4s;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+    visibility: hidden;
+  }
 }

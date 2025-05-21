@@ -92,3 +92,7 @@ volume_db = 10.0
 stream = ExtResource("6_rmfqj")
 volume_db = 10.0
 autoplay = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-5.5, 7.5)
+scale = Vector2(1.55, 1.75)
