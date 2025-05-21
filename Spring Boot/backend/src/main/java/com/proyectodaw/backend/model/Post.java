@@ -27,7 +27,7 @@ public class Post {
     @Column(name = "post_content", nullable = false)
     private String contenido;
 
-    @Column(name = "post_created_at", nullable = false) // ✅ Se puede insertar manualmente
+    @Column(name = "post_created_at", nullable = false)
     private LocalDateTime fechaCreacion;
 
     @ManyToOne

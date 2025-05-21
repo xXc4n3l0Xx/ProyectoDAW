@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://bepmyktfihhs2"]
+
+[ext_resource type="Script" uid="uid://cmaou8l3myj44" path="res://scenes/characters/player/attacks/bullet.gd" id="1_nj8n2"]
+[ext_resource type="Texture2D" uid="uid://d3dsf23lln5mu" path="res://assets/characters/[CITYPNG.COM]Bullet Gunshot Blue Explosion Fire Ball Animation PNG - 2000x2000.png" id="2_xrhir"]
+[ext_resource type="PackedScene" uid="uid://bdx1u0tl2unut" path="res://scenes/components/hurtbox/hurtbox.tscn" id="3_85lwf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1krde"]
+atlas = ExtResource("2_xrhir")
+region = Rect2(186, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f58a"]
+atlas = ExtResource("2_xrhir")
+region = Rect2(248, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm2gl"]
+atlas = ExtResource("2_xrhir")
+region = Rect2(310, 62, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3l51"]
+atlas = ExtResource("2_xrhir")
+region = Rect2(372, 62, 62, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pktrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1krde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f58a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm2gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3l51")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfhyh"]
+radius = 7.0
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_nj8n2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.612903, 0.580645)
+sprite_frames = SubResource("SpriteFrames_pktrs")
+autoplay = "default"
+frame_progress = 0.333708
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_85lwf")]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(3, 1)
+shape = SubResource("CircleShape2D_cfhyh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

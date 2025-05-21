@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=4 uid="uid://8hdfwb07ubka"]
+
+[ext_resource type="PackedScene" uid="uid://djikjeyds8d01" path="res://scenes/characters/player/player.tscn" id="1_errlg"]
+[ext_resource type="PackedScene" uid="uid://ifx33klnyqpk" path="res://scenes/tilemaps/background.tscn" id="1_iyx0m"]
+[ext_resource type="Script" uid="uid://cxwuxir6hpvbu" path="res://scenes/level.gd" id="1_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://dvndeaevnx617" path="res://scenes/tilemaps/ground.tscn" id="2_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://c2jdglf1he6jn" path="res://scenes/levels/world_boundary.tscn" id="4_74lek"]
+[ext_resource type="PackedScene" uid="uid://cad652cnwkmr" path="res://scenes/characters/enemies/esqueleto.tscn" id="6_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://32gdryeym074" path="res://scenes/characters/enemies/calcio.tscn" id="7_uacia"]
+[ext_resource type="PackedScene" uid="uid://dnxta8l7yut11" path="res://scenes/characters/enemies/lanzador.tscn" id="8_yk7ts"]
+[ext_resource type="PackedScene" uid="uid://bwux5hxh1r3dw" path="res://scenes/characters/enemies/mariposa.tscn" id="9_ajshl"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_j5jx5")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_74lek")]
+
+[node name="Background" parent="." instance=ExtResource("1_iyx0m")]
+position = Vector2(-7, -15)
+
+[node name="Player" parent="." instance=ExtResource("1_errlg")]
+position = Vector2(42, 35)
+collision_mask = 256
+
+[node name="PlayerBullets" type="Node" parent="."]
+
+[node name="PlayerPunch" type="Node" parent="."]
+
+[node name="Ground" parent="." instance=ExtResource("2_iyx0m")]
+position = Vector2(2, 0)
+tile_map_data = PackedByteArray("AAABAAUAAAABAAkAAAACAAUAAAACAAkAAAADAAUAAAADAAkAAAAFAAkAAAABAAkAAAAGAAkAAAACAAkAAAAHAAkAAAADAAkAAAAIAA4AAAABAAkAAAAJAA4AAAACAAkAAAAKAA4AAAADAAkAAAASAAwAAAABAAkAAAATAAwAAAACAAkAAAAUAAwAAAADAAkAAAAhAA0AAAABAAkAAAAiAA0AAAACAAkAAAAjAA0AAAADAAkAAAAcAAcAAAABAAkAAAAdAAcAAAACAAkAAAAeAAcAAAADAAkAAAAAABgAAAABAAkAAAABABgAAAACAAkAAAACABgAAAADAAkAAAADABgAAAABAAkAAAAEABgAAAACAAkAAAAFABgAAAADAAkAAAAGABgAAAABAAkAAAAHABgAAAACAAkAAAAIABgAAAADAAkAAAAJABgAAAABAAkAAAAKABgAAAACAAkAAAALABgAAAADAAkAAAAMABgAAAABAAkAAAANABgAAAACAAkAAAAOABgAAAADAAkAAAAPABgAAAABAAkAAAAQABgAAAACAAkAAAARABgAAAADAAkAAAASABgAAAABAAkAAAATABgAAAACAAkAAAAUABgAAAADAAkAAAAVABgAAAABAAkAAAAWABgAAAACAAkAAAAXABgAAAABAAkAAAAYABgAAAACAAkAAAAZABgAAAADAAkAAAAaABgAAAABAAkAAAAbABgAAAACAAkAAAAcABgAAAADAAkAAAAdABgAAAABAAkAAAAeABgAAAACAAkAAAAfABgAAAADAAkAAAAgABgAAAABAAkAAAAhABgAAAACAAkAAAAiABgAAAABAAkAAAAjABgAAAACAAkAAAAkABgAAAADAAkAAAAlABgAAAABAAkAAAAmABgAAAACAAkAAAAnABgAAAADAAkAAAAoABgAAAABAAkAAAApABgAAAACAAkAAAAqABgAAAADAAkAAAArABgAAAABAAkAAAAsABgAAAACAAkAAAAtABgAAAADAAkAAAAuABgAAAABAAkAAAAvABgAAAACAAkAAAAwABgAAAADAAkAAAAxABgAAAABAAkAAAAyABgAAAACAAkAAAAzABgAAAADAAkAAAA0ABgAAAABAAkAAAA1ABgAAAACAAkAAAA2ABgAAAADAAkAAAA3ABgAAAABAAkAAAA4ABgAAAACAAkAAAA5ABgAAAADAAkAAAA4ABQAAAACAAkAAAA5ABQAAAACAAkAAAA6ABQAAAADAAkAAAAsABAAAAABAAkAAAAtABAAAAACAAkAAAAuABAAAAADAAkAAAAqAAgAAAACAAkAAAArAAgAAAADAAkAAAAsAAgAAAABAAkAAAA3AAcAAAACAAkAAAA4AAcAAAABAAkAAAA5AAcAAAACAAkAAAA6AAcAAAADAAkAAAAZABQAAAABAAkAAAAaABQAAAACAAkAAAAbABQAAAADAAkAAAA3ABQAAAABAAkAAAANABQAAAABAAkAAAAOABQAAAACAAkAAAAPABQAAAADAAkAAAABABIAAAABAAkAAAACABIAAAACAAkAAAADABIAAAADAAkAAAA=")
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_74lek")]
+
+[node name="Esqueleto" parent="." instance=ExtResource("6_lpvoh")]
+position = Vector2(171, 97)
+
+[node name="Calcio" parent="." instance=ExtResource("7_uacia")]
+position = Vector2(430, 286)
+
+[node name="Mariposa" parent="." instance=ExtResource("9_ajshl")]
+position = Vector2(231, 142)
+
+[node name="Lanzador" parent="." instance=ExtResource("8_yk7ts")]
+position = Vector2(910, 283)

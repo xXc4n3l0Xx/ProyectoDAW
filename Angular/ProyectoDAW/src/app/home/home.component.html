@@ -1,0 +1,36 @@
+<div class="fondo">
+  <div class="panel top-jugadores">
+    <h3>Top 5 jugadores</h3>
+    <ul>
+      <li *ngFor="let jugador of topJugadores">
+        {{ jugador.nombre }} - {{ jugador.puntuacion }} pts
+      </li>
+    </ul>
+  </div>
+
+  <div class="video-panel">
+    <div class="video-msg-box video-msg-superior">
+      <p>El gameplay mostrado puede variar en la versión final.</p>
+    </div>
+
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="assets/inicio.mp4" type="video/mp4" />
+      Tu navegador no soporta el video.
+    </video>
+
+    <div class="video-msg-box video-msg-inferior">
+      <p>¿Aún no eres parte?</p>
+      <button class="registro-btn" (click)="irARegistro()">Únete a nuestra comunidad</button>
+    </div>
+  </div>
+
+  <div class="panel login-panel">
+    <h2>Iniciar sesión</h2>
+    <form (ngSubmit)="onLogin()">
+      <input type="email" [(ngModel)]="correo" name="correo" placeholder="Correo" required />
+      <input type="password" [(ngModel)]="contrasena" name="contrasena" placeholder="Contraseña" required />
+      <button type="submit">Ingresar</button>
+    </form>
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </div>
+</div>

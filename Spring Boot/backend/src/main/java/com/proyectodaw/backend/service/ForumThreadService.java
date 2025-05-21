@@ -24,10 +24,15 @@ public class ForumThreadService {
     private UsuarioRepository usuarioRepository;
 
     public ForumThread crearHilo(ForumThread hilo) {
-        Usuario completo = usuarioRepository.findById(hilo.getUsuario().getId()).orElse(null);
+        Integer idUsuario = hilo.getUsuario().getId();
+
+        Usuario completo = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario no encontrado"));
+
         hilo.setUsuario(completo);
         return forumThreadRepository.save(hilo);
     }
+
 
     public List<ForumThreadResponseDTO> obtenerHilosActivos() {
         List<ForumThread> hilos = forumThreadRepository.findAllActivos();

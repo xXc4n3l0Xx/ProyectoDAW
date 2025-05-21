@@ -21,7 +21,7 @@ public class UsuarioService {
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public Usuario registrarUsuario(Usuario u) {
-        u.setContrasena(passwordEncoder.encode(u.getContrasena())); // 🔐 Encripta
+        u.setContrasena(passwordEncoder.encode(u.getContrasena()));
         return usuarioRepository.save(u);
     }
 

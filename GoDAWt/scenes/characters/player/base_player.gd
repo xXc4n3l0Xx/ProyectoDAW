@@ -1,4 +1,5 @@
-class_name BasePlayer extends CharacterBody2D
+class_name BasePlayer
+extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -10,14 +11,12 @@ class_name BasePlayer extends CharacterBody2D
 @onready var gun_sound: AudioStreamPlayer = $Sounds/GunSound
 @onready var punch_sound: AudioStreamPlayer = $Sounds/PunchSound
 @onready var jump_sound: AudioStreamPlayer = $"Sounds/JumpSound"
-@onready var laugh_sound: AudioStreamPlayer = $Sounds/LaughSound
 @onready var thorns_ray: RayCast2D = $ThornsRay
 @onready var knockback_state: KnockbackState = $StateMachine/KnockbackState
 @onready var hurt_sound: AudioStreamPlayer = $Sounds/HurtSound
 @onready var health_bar: TextureProgressBar = $HealthCanvasLayer/HealthBar
 @onready var diamonds_bar: TextureProgressBar = $DiamondsCanvasBar/DiamondsBar
 @onready var score_label: Label = $PointsCanvas/ScoreLabel
-
 
 @export_category("Physics")
 @export var speed: float = 200.0
@@ -42,15 +41,17 @@ var diamonds: int = 0
 var score: int = 0
 signal died
 
-
 func _ready() -> void:
 	hitbox.take_damage.connect(_on_take_damage)
 
-	health_bar.value = health
+	health = GameState.saved_health
+	score = GameState.saved_score
+
 	health_bar.max_value = max_health
+	health_bar.value = health
 	diamonds = 0
-	diamonds_bar.value = diamonds
 	diamonds_bar.max_value = max_diamonds
+	diamonds_bar.value = 0
 	update_score_label()
 
 func _process(_delta: float) -> void:
@@ -63,7 +64,6 @@ func _process(_delta: float) -> void:
 		if invulnerable_timer <= 0:
 			is_invulnerable = false
 
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 
 func force_die() -> void:
 	if not is_dead:
-		LevelManager.saved_health = health
+		GameState.saved_health = health
 		health = 0
 		die()
 
@@ -92,9 +92,8 @@ func _on_take_damage(amount: int) -> void:
 		return
 
 	hurt_sound.play()
-	health_bar.value -= amount
 	health -= amount
-	print(health)
+	health_bar.value = health
 	if health <= 0:
 		is_dead = true
 		die()
@@ -104,6 +103,8 @@ func _on_take_damage(amount: int) -> void:
 func update_score_label() -> void:
 	score_label.text = "Score: %d" % score
 
+func report_score():
+	print("SCORE_REPORT: %d" % score)
 
 
 func die() -> void:
@@ -111,8 +112,13 @@ func die() -> void:
 	set_physics_process(false)
 	died.emit()
 	visible = false
-	PlayerManager.player.score -= 2234
-	PlayerManager.player.update_score_label()
+
+	score = clamp(GameState.saved_score - 1234, 0, 999999)
+	update_score_label()
+	report_score()
+	GameState.saved_score = score
+	GameState.saved_health = max_health
+
 	PlayerManager.player = self
 	PlayerManager.player_spawned.emit(self)
 
@@ -121,6 +127,5 @@ func die() -> void:
 		hitbox.set_deferred("monitorable", false)
 		hitbox.set_collision_layer_value(1, false)
 		hitbox.set_collision_mask_value(1, false)
-	laugh_sound.play()
+
 	death_sound.play()
-	await laugh_sound.finished

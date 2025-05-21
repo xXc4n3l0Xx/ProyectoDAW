@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://b83mk7pxhpf1l"]
 
-[ext_resource type="Script" uid="uid://cxwuxir6hpvbu" path="res://scenes/levels/level.gd" id="1_70imb"]
+[ext_resource type="Script" uid="uid://dekleoi8ktmav" path="res://scenes/levels/level02.gd" id="1_y213i"]
 [ext_resource type="PackedScene" uid="uid://c2jdglf1he6jn" path="res://scenes/levels/world_boundary.tscn" id="2_bhr4b"]
 [ext_resource type="PackedScene" uid="uid://ifx33klnyqpk" path="res://scenes/tilemaps/background.tscn" id="3_5rl6w"]
 [ext_resource type="PackedScene" uid="uid://dvndeaevnx617" path="res://scenes/tilemaps/ground.tscn" id="4_2fscy"]
@@ -15,7 +15,7 @@
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 222)
-script = ExtResource("1_70imb")
+script = ExtResource("1_y213i")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_bhr4b")]
 
@@ -61,12 +61,10 @@ position = Vector2(3206, 48)
 
 [node name="Esqueleto" parent="." instance=ExtResource("9_5rl6w")]
 position = Vector2(1855, 272)
-speed = 170.0
 hit_delay = 0.5
 
 [node name="Esqueleto2" parent="." instance=ExtResource("9_5rl6w")]
 position = Vector2(2901, 285)
-speed = 140.0
 hit_delay = 0.5
 
 [node name="LevelTransition" parent="." instance=ExtResource("10_5rl6w")]
@@ -101,4 +99,5 @@ position = Vector2(2786, 48)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_y213i")
+volume_db = 3.0
 autoplay = true

@@ -14,7 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
+import java.util.Map;
 import java.sql.Timestamp;
 import java.util.Optional;
 
@@ -34,12 +34,10 @@ public class UsuarioController {
     @PostMapping("/registro")
     public UsuarioResponseDTO registrar(@RequestBody Usuario usuario) {
 
-        // Verificar duplicado de correo
         if (usuarioRepository.findByCorreo(usuario.getCorreo()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Ya existe un usuario con ese correo");
         }
 
-        // Verificar duplicado de nombre
         if (usuarioRepository.findByNombre(usuario.getNombre()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Ya existe un usuario con ese nombre");
         }
@@ -72,7 +70,6 @@ public class UsuarioController {
         Usuario usuarioAutenticado = usuarioRepository.findByCorreoAndEstado_Id(correoDesdeToken, 1)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Usuario no válido"));
 
-        // Solo puede editarse a sí mismo
         if (!usuarioAutenticado.getId().equals(id)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Solo puedes editar tu propio perfil");
         }
@@ -92,7 +89,6 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
     }
 
-
     private UsuarioResponseDTO construirDTO(Usuario u) {
         UsuarioResponseDTO dto = new UsuarioResponseDTO();
         dto.setId(u.getId());
@@ -105,4 +101,27 @@ public class UsuarioController {
         dto.setRol(u.getRol().getNombre());
         return dto;
     }
+
+    @PostMapping("/score")
+    public ResponseEntity<?> guardarScore(@RequestBody Map<String, Integer> body,
+                                          @RequestHeader("Authorization") String token) {
+        String correo = jwtUtil.getCorreoDesdeToken(token.replace("Bearer ", ""));
+        Usuario usuario = usuarioRepository.findByCorreo(correo)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Usuario no encontrado"));
+
+        Integer nuevoScore = body.get("score");
+        if (nuevoScore == null || nuevoScore < 0) {
+            return ResponseEntity.badRequest().body("Score inválido");
+        }
+
+        if (nuevoScore > usuario.getPuntuacion()) {
+            usuario.setPuntuacion(nuevoScore);
+            usuarioRepository.save(usuario);
+            return ResponseEntity.ok("Nueva mejor puntuación: " + nuevoScore);
+        }
+
+        return ResponseEntity.ok("Puntuación no actualizada (no es mayor a la actual)");
+    }
+
+
 }

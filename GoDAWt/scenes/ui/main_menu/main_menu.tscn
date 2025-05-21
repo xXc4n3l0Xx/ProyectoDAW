@@ -66,12 +66,6 @@ theme_override_fonts/font = ExtResource("3_r70wa")
 theme_override_font_sizes/font_size = 40
 text = "Start"
 
-[node name="ExitButton" type="Button" parent="ButtonContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_r70wa")
-theme_override_font_sizes/font_size = 40
-text = "Exit"
-
 [node name="CreditsButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_r70wa")
@@ -84,5 +78,4 @@ volume_db = -10.0
 autoplay = true
 
 [connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

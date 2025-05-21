@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://cbjuwv5twcx6a"]
 
-[ext_resource type="Script" uid="uid://cxwuxir6hpvbu" path="res://scenes/levels/level.gd" id="1_sp8ps"]
+[ext_resource type="Script" uid="uid://dm1sb0t4p4kwu" path="res://scenes/levels/level00.gd" id="1_cy7co"]
 [ext_resource type="PackedScene" uid="uid://c2jdglf1he6jn" path="res://scenes/levels/world_boundary.tscn" id="2_8v373"]
 [ext_resource type="PackedScene" uid="uid://ifx33klnyqpk" path="res://scenes/tilemaps/background.tscn" id="3_ncghl"]
 [ext_resource type="PackedScene" uid="uid://dvndeaevnx617" path="res://scenes/tilemaps/ground.tscn" id="4_aomci"]
@@ -19,7 +19,7 @@
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 221)
-script = ExtResource("1_sp8ps")
+script = ExtResource("1_cy7co")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_8v373")]
 
@@ -36,7 +36,7 @@ position = Vector2(41, 66)
 position = Vector2(3929, 65)
 
 [node name="Player" parent="." instance=ExtResource("6_t845q")]
-position = Vector2(43, 57)
+position = Vector2(44, 58)
 collision_mask = 256
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_8v373")]
@@ -49,6 +49,7 @@ pause_time = 0.5
 
 [node name="LevelTransition" parent="." instance=ExtResource("9_54put")]
 position = Vector2(3928, 69)
+script = null
 
 [node name="Label" type="Label" parent="."]
 offset_left = 168.0
@@ -154,7 +155,6 @@ position = Vector2(860, 542)
 
 [node name="Esqueleto" parent="." instance=ExtResource("11_ncghl")]
 position = Vector2(1304, 145)
-speed = 180.0
 
 [node name="Mariposa2" parent="." instance=ExtResource("8_cy7co")]
 position = Vector2(1676, 44)
@@ -183,7 +183,7 @@ position = Vector2(3363, 76)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_5aywb")
-volume_db = -10.0
+volume_db = -7.0
 autoplay = true
 
 [node name="Thorns2" parent="." instance=ExtResource("7_5aywb")]

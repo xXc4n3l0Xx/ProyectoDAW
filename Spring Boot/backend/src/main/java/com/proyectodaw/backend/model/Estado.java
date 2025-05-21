@@ -18,7 +18,6 @@ public class Estado {
     @Column(nullable = false, length = 20)
     private String descripcion;
 
-    // ✅ Constructor para usar solo el ID
     public Estado(Integer id) {
         this.id = id;
     }

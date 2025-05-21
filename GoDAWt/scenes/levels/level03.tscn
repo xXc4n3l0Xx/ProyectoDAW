@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://c8dbqac8xqslu"]
 
-[ext_resource type="Script" uid="uid://cxwuxir6hpvbu" path="res://scenes/levels/level.gd" id="1_qqxap"]
+[ext_resource type="Script" uid="uid://deut73dfbgwjn" path="res://scenes/levels/level03.gd" id="1_ibj36"]
 [ext_resource type="PackedScene" uid="uid://c2jdglf1he6jn" path="res://scenes/levels/world_boundary.tscn" id="2_wjpam"]
 [ext_resource type="PackedScene" uid="uid://ifx33klnyqpk" path="res://scenes/tilemaps/background.tscn" id="3_qlctk"]
 [ext_resource type="PackedScene" uid="uid://dvndeaevnx617" path="res://scenes/tilemaps/ground.tscn" id="4_0mxsm"]
@@ -18,7 +18,7 @@
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 222)
-script = ExtResource("1_qqxap")
+script = ExtResource("1_ibj36")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_wjpam")]
 
@@ -133,7 +133,7 @@ position = Vector2(1229, 16)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ibj36")
-volume_db = -10.0
+volume_db = -7.0
 autoplay = true
 
 [node name="Lanzador" parent="." instance=ExtResource("14_iddr1")]
@@ -141,8 +141,6 @@ position = Vector2(802, 156)
 
 [node name="Esqueleto" parent="." instance=ExtResource("15_6fiy8")]
 position = Vector2(2486, 371)
-speed = 165.0
 
 [node name="Esqueleto2" parent="." instance=ExtResource("15_6fiy8")]
 position = Vector2(952, 370)
-speed = 165.0

@@ -42,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        String token = authHeader.substring(7); // quitar "Bearer "
+        String token = authHeader.substring(7);
         String correo = jwtUtil.getCorreoDesdeToken(token);
 
         if (correo != null && SecurityContextHolder.getContext().getAuthentication() == null) {

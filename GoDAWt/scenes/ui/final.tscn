@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2ywsn3fgx7bx"]
+
+[ext_resource type="Script" uid="uid://7nenl1x3exwj" path="res://scenes/ui/final.gd" id="1_diedo"]
+[ext_resource type="Texture2D" uid="uid://ickhd8xsy3w1" path="res://assets/menus/end.jpg" id="2_diedo"]
+[ext_resource type="AudioStream" uid="uid://v0viish57gth" path="res://assets/sounds/ost/end.mp3" id="3_nwe4l"]
+
+[node name="Final" type="CanvasLayer"]
+script = ExtResource("1_diedo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_diedo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nwe4l")

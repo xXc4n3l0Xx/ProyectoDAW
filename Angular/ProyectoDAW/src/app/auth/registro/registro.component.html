@@ -1,0 +1,23 @@
+<div class="fondo">
+  <div class="registro-contenedor">
+    <h2>Registrar nuevo usuario</h2>
+    <form (ngSubmit)="registrar()">
+      <input type="text" placeholder="Nombre" [(ngModel)]="nombre" name="nombre" required />
+      <input type="email" placeholder="Correo" [(ngModel)]="correo" name="correo" required />
+      <input type="password" placeholder="Contraseña" [(ngModel)]="contrasena" name="contrasena" required />
+
+      <p>Selecciona un avatar:</p>
+      <div class="avatars">
+        <img *ngFor="let icono of avatares"
+             [src]="icono"
+             [class.selected]="avatar === icono"
+             (click)="seleccionarAvatar(icono)"
+             class="avatar-option" />
+      </div>
+
+      <button type="submit">Registrar</button>
+    </form>
+
+    <button (click)="volver()">Volver al inicio</button>
+  </div>
+</div>

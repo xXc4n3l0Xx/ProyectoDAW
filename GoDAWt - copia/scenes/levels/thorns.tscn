@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://6gf85qxsdyk2"]
+
+[ext_resource type="Script" uid="uid://ba46s8akm52dr" path="res://scenes/levels/thorns.gd" id="1_onc0f"]
+[ext_resource type="Texture2D" uid="uid://cau1nbn1fyatn" path="res://assets/maps/thorns.png" id="2_cegeu"]
+[ext_resource type="Script" uid="uid://b3vvn4d0nl8s0" path="res://scenes/components/hurtbox/hurtbox.gd" id="3_p1fvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4rxa"]
+size = Vector2(1446, 23)
+
+[node name="Thorns" type="Area2D" groups=["Thorns"]]
+collision_layer = 24
+script = ExtResource("1_onc0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.574037, 0.205065)
+texture = ExtResource("2_cegeu")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 24
+script = ExtResource("3_p1fvs")
+metadata/_custom_type_script = "uid://b3vvn4d0nl8s0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_d4rxa")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GoDAWt"
-run/main_scene="uid://sxcleyw27unb"
+run/main_scene="uid://bhhy04x03j4wi"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=45
 config/icon="res://icon.svg"
@@ -23,6 +23,7 @@ PlayerManager="*res://_globals/player_manager.gd"
 PauseMenu="*res://scenes/ui/pause_menu/pause_menu.tscn"
 SceneTransition="*res://scenes/levels/scene_transition.tscn"
 DeathMenu="*res://scenes/ui/death_menu/death_menu.tscn"
+GameState="*res://_globals/game_state.gd"
 
 [display]
 

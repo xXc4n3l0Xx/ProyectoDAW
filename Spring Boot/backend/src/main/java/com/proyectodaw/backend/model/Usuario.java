@@ -40,7 +40,6 @@ public class Usuario {
     @JoinColumn(name = "id_rol")
     private Rol rol;
 
-    // ✅ Constructor adicional para usar solo con ID
     public Usuario(Integer id) {
         this.id = id;
     }

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1flq8yr8h4a1"
+path="res://.godot/imported/Waterfall Theme.mp3-1e890a6c366c3f4cea1a1371faf432c1.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/ost/Waterfall Theme.mp3"
+dest_files=["res://.godot/imported/Waterfall Theme.mp3-1e890a6c366c3f4cea1a1371faf432c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

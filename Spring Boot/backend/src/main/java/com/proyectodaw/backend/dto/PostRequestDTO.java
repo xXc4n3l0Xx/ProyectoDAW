@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class PostRequestDTO {
     private Integer idThread;
-    private Integer idUsuario; // ✅ NECESARIO para crear el objeto Usuario
+    private Integer idUsuario;
     private String contenido;
 }

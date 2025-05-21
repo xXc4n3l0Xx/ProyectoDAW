@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://bbyq5otqgbawb"]
 
-[ext_resource type="Script" uid="uid://cxwuxir6hpvbu" path="res://scenes/levels/level.gd" id="1_s1ksl"]
+[ext_resource type="Script" uid="uid://cay13y8idyc7" path="res://scenes/levels/level06.gd" id="1_8pgtm"]
 [ext_resource type="PackedScene" uid="uid://dvndeaevnx617" path="res://scenes/tilemaps/ground.tscn" id="4_aqaw8"]
 [ext_resource type="PackedScene" uid="uid://dwwne5fa7e6fi" path="res://scenes/levels/spawn.tscn" id="5_ued2n"]
 [ext_resource type="PackedScene" uid="uid://dhu5awva4kjob" path="res://scenes/level_transition.tscn" id="8_0aef1"]
@@ -13,7 +13,7 @@
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 221)
-script = ExtResource("1_s1ksl")
+script = ExtResource("1_8pgtm")
 
 [node name="Ground" parent="." instance=ExtResource("4_aqaw8")]
 position = Vector2(2, 0)
@@ -30,7 +30,7 @@ position = Vector2(12500, 101)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_dqlmp")
-volume_db = -10.0
+volume_db = -7.0
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

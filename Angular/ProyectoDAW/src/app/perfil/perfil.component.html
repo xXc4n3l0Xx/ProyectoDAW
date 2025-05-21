@@ -1,0 +1,47 @@
+<div class="fondo">
+  <div class="contenido">
+    <h2>Editar datos de usuario</h2>
+    <form (ngSubmit)="actualizarPerfil()">
+      <input
+        type="text"
+        [(ngModel)]="usuario.nombre"
+        name="nombre"
+        placeholder="Nombre"
+        required
+      />
+      <input
+        type="email"
+        [(ngModel)]="usuario.correo"
+        name="correo"
+        placeholder="Correo"
+        required
+      />
+      <input
+        type="password"
+        [(ngModel)]="usuario.contrasena"
+        name="contrasena"
+        placeholder="Contraseña"
+        required
+      />
+
+      <p class="aviso">
+        Por seguridad, debes ingresar tu contraseña actual o una nueva para guardar los cambios.
+      </p>
+
+      <p>Selecciona un nuevo avatar:</p>
+      <div class="avatars">
+        <img
+          *ngFor="let icono of avatares"
+          [src]="icono"
+          [class.selected]="usuario.avatar === icono"
+          (click)="seleccionarAvatar(icono)"
+          class="avatar-option"
+        />
+      </div>
+
+      <button type="submit">Actualizar</button>
+    </form>
+
+    <button (click)="cancelar()">Cancelar</button>
+  </div>
+</div>

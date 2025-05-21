@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://8hdfwb07ubka"]
 
-[ext_resource type="Script" uid="uid://cxwuxir6hpvbu" path="res://scenes/levels/level.gd" id="1_85lfi"]
+[ext_resource type="Script" uid="uid://cuuko7q6y5xat" path="res://scenes/levels/level01.gd" id="1_qonbx"]
 [ext_resource type="PackedScene" uid="uid://c2jdglf1he6jn" path="res://scenes/levels/world_boundary.tscn" id="2_3haoj"]
 [ext_resource type="PackedScene" uid="uid://ifx33klnyqpk" path="res://scenes/tilemaps/background.tscn" id="3_bvpmc"]
 [ext_resource type="PackedScene" uid="uid://djikjeyds8d01" path="res://scenes/characters/player/player.tscn" id="4_8ymoh"]
@@ -16,7 +16,7 @@
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 222)
-script = ExtResource("1_85lfi")
+script = ExtResource("1_qonbx")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_3haoj")]
 
@@ -79,5 +79,5 @@ position = Vector2(2770, 185)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_y32f7")
-volume_db = -5.0
+volume_db = -2.0
 autoplay = true

@@ -5,79 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80a453f9-f646-49db-8058-d150d5b1a344" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/controller/ForumThreadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/controller/PostController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/controller/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/AuthResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/ForumThreadResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/ForumThreadUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/HiloRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/PostRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/PostResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/PostUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/UsuarioResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/dto/UsuarioUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/model/Estado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/model/ForumThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/model/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/model/Rol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/model/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/repository/ForumThreadRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/repository/PostRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/repository/UsuarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/service/ForumThreadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/service/PostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/_globals/level_manager.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/_globals/level_manager.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/collect/diamond.png" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/assets/collect/diamond.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/A State of Emergency.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/A State of Emergency.mp3.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Bonk.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Bonk.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Butterfly.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Butterfly.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Collect Item.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Collect Item.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/EnemyDeath.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/EnemyDeath.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Hurt.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Hurt.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Jump.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Jump.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Jumps.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Jumps.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Laugh.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Laugh.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/PlayerDeath.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/PlayerDeath.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Punch.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Punch.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Punches.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Punches.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Shoot.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/assets/sounds/Shoot.wav.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/project.godot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/attacks/rock.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/attacks/rock.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/esqueleto.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/esqueleto.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/lanzador.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/lanzador.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/mariposa.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/characters/enemies/mariposa.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/characters/player/base_player.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/characters/player/base_player.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/characters/player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/characters/player/player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/collectibles/diamond.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/collectibles/diamond.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/collectibles/diamond.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/collectibles/diamond.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/level_transition.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/level_transition.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/level_transition.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/level_transition.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level.gd" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level00.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level00.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level01.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level01.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level02.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level02.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level03.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level03.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level04.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../GoDAWt/scenes/levels/level04.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SQL/Tablas BD.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../SQL/Tablas BD.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/ProyectoDAW/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/ProyectoDAW/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/app/app.routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/ProyectoDAW/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring Boot/backend.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/service/ForumThreadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring Boot/backend/src/main/java/com/proyectodaw/backend/service/ForumThreadService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,6 +175,8 @@
       <workItem from="1747283151093" duration="8000" />
       <workItem from="1747450316444" duration="1541000" />
       <workItem from="1747453948327" duration="5961000" />
+      <workItem from="1747608587055" duration="219000" />
+      <workItem from="1747608930768" duration="15928000" />
     </task>
     <servers />
   </component>

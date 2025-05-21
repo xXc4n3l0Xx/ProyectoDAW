@@ -1,0 +1,58 @@
+.fondo {
+  background-image: url('/assets/foro.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px 0;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.contenido {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  width: 60%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+textarea, button {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.eliminar-btn {
+  background-color: #e53935;
+  margin-top: 5px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  width: auto;
+}

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cn0pgr2gb2i6c"
+path="res://.godot/imported/Simian Segue.mp3-2a706d3bd2152afb4df4c0e5219c58dd.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/ost/Simian Segue.mp3"
+dest_files=["res://.godot/imported/Simian Segue.mp3-2a706d3bd2152afb4df4c0e5219c58dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
