@@ -30,7 +30,7 @@ func _on_portal_entered(body):
 func go_to_next_level():
 	player.set_physics_process(false)
 	player.set_process(false)
-	player.score += 3000
+	player.score += randi_range(4500, 4550)
 	player.update_score_label()
 
 	GameState.saved_health = player.health

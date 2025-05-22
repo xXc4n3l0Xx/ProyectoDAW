@@ -10,9 +10,17 @@ script = ExtResource("1_kgchh")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -21,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 363.0
-offset_top = 129.0
-offset_right = 548.0
-offset_bottom = 231.0
+offset_left = -92.5
+offset_top = -51.0
+offset_right = 92.5
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -38,7 +46,7 @@ text = "Resume"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rbnsh")
 theme_override_font_sizes/font_size = 40
-text = "Quit"
+text = "Save & Exit"
 
 [connection signal="pressed" from="Control/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

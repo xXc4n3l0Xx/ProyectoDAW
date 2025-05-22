@@ -43,7 +43,7 @@ text = "Restart Level"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_lumx3")
 theme_override_font_sizes/font_size = 40
-text = "Exit"
+text = "Save & Exit"
 
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

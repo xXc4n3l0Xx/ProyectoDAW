@@ -15,7 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func collect(_player: Player) -> void:
 	collected.emit()
-	PlayerManager.player.score += 8887
+	PlayerManager.player.score += randi_range(15000, 15030)
 	PlayerManager.player.update_score_label()
 	audio_stream_player.play()
 	collision_shape.set_deferred("disabled", true)

@@ -1,39 +1,49 @@
 <div class="fondo">
   <div class="contenido">
-    <h2>Temas del Foro</h2>
+    
+    <div class="contenido-scrollable">
+      <h2>Temas del Foro</h2>
 
-    <ul *ngIf="temas.length > 0; else sinTemas">
-      <li *ngFor="let tema of temas">
-        <a [routerLink]="['/tema', tema.id]" class="tema-link">
-          <strong>{{ tema.titulo }}</strong>
-        </a>
-        <p>- creado por {{ tema.nombreUsuario }} el {{ tema.creadoEn | date:'short' }}</p>
-        <button *ngIf="puedeEliminar(tema.nombreUsuario)"
-                (click)="eliminarTema(tema.id)"
-                class="eliminar-btn">Eliminar</button>
-      </li>
-    </ul>
-
-    <ng-template #sinTemas>
-      <p>No hay temas en el foro.</p>
-    </ng-template>
-
-    <div *ngIf="usuario?.rol?.nombre === 'admin' && temasEliminados.length > 0">
-      <h3>Temas eliminados</h3>
-      <ul>
-        <li *ngFor="let tema of temasEliminados">
-          <strong>{{ tema.titulo }}</strong> (eliminado)
-          <button (click)="reactivarTema(tema.id)" class="eliminar-btn">Reactivar</button>
+      <ul *ngIf="temas.length > 0; else sinTemas">
+        <li *ngFor="let tema of temas">
+          <a [routerLink]="['/tema', tema.id]" class="tema-link">
+            <strong>{{ tema.titulo }}</strong>
+          </a>
+          <div class="lista-tema">
+            <p class="tema-info">
+              - Creado por {{ tema.nombreUsuario }} el {{ tema.creadoEn | date:'short' }}
+            </p>
+            <button *ngIf="puedeEliminar(tema.nombreUsuario)"
+                    (click)="eliminarTema(tema.id)"
+                    class="eliminar-btn">Eliminar</button>
+          </div>
         </li>
       </ul>
+
+      <ng-template #sinTemas>
+        <p class="sin-temas">No hay temas en el foro.</p>
+      </ng-template>
+
+
+      <div *ngIf="usuario?.rol?.nombre === 'admin' && temasEliminados.length > 0">
+        <h3>Temas eliminados</h3>
+        <ul>
+          <li *ngFor="let tema of temasEliminados">
+            <strong>{{ tema.titulo }}</strong> (eliminado)
+            <button (click)="reactivarTema(tema.id)" class="eliminar-btn">Reactivar</button>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <h3>Crear nuevo tema</h3>
-    <form (ngSubmit)="crearTema()">
-      <input type="text" [(ngModel)]="nuevoTitulo" name="titulo" placeholder="Título del tema" required>
-      <button type="submit">Crear tema</button>
-    </form>
+    <div class="contenido-fijo">
+      <h3>Crear nuevo tema</h3>
+      <form (ngSubmit)="crearTema()">
+        <input type="text" [(ngModel)]="nuevoTitulo" name="titulo" placeholder="Título del tema" required>
+        <button type="submit">Crear tema</button>
+      </form>
+      <button routerLink="/dashboard">Volver</button>
+    </div>
 
-    <button routerLink="/dashboard">Volver</button>
   </div>
 </div>

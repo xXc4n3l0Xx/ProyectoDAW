@@ -88,6 +88,8 @@ func manage_bullets() -> void:
 			bullet._destroy()
 
 func _on_take_damage(amount: int) -> void:
+	score = clamp(score - randi_range(3, 9), 0, 999999)
+	update_score_label()
 	if is_knocked_back or is_dead or is_invulnerable:
 		return
 

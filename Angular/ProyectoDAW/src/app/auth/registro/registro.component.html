@@ -1,18 +1,57 @@
 <div class="fondo">
   <div class="registro-contenedor">
     <h2>Registrar nuevo usuario</h2>
-    <form (ngSubmit)="registrar()">
-      <input type="text" placeholder="Nombre" [(ngModel)]="nombre" name="nombre" required />
-      <input type="email" placeholder="Correo" [(ngModel)]="correo" name="correo" required />
-      <input type="password" placeholder="Contraseña" [(ngModel)]="contrasena" name="contrasena" required />
+
+    <form #form="ngForm" (ngSubmit)="registrar(form)">
+      <input
+        type="text"
+        placeholder="Nickname"
+        [(ngModel)]="nombre"
+        name="nombre"
+        required
+        #nombreInput="ngModel"
+      />
+      <div *ngIf="nombreInput.invalid && nombreInput.touched" class="error">
+        El nombre es obligatorio.
+      </div>
+
+      <input
+        type="email"
+        placeholder="Correo"
+        [(ngModel)]="correo"
+        name="correo"
+        required
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+        #correoInput="ngModel"
+      />
+      <div *ngIf="correoInput.invalid && correoInput.touched" class="error">
+        Ingresa un correo válido.
+      </div>
+
+      <input
+        type="password"
+        placeholder="Contraseña"
+        [(ngModel)]="contrasena"
+        name="contrasena"
+        required
+        #contrasenaInput="ngModel"
+      />
+      <div *ngIf="contrasenaInput.invalid && contrasenaInput.touched" class="error">
+        La contraseña es obligatoria.
+      </div>
 
       <p>Selecciona un avatar:</p>
       <div class="avatars">
-        <img *ngFor="let icono of avatares"
-             [src]="icono"
-             [class.selected]="avatar === icono"
-             (click)="seleccionarAvatar(icono)"
-             class="avatar-option" />
+        <img
+          *ngFor="let icono of avatares"
+          [src]="icono"
+          [class.selected]="avatar === icono"
+          (click)="seleccionarAvatar(icono)"
+          class="avatar-option"
+        />
+      </div>
+      <div *ngIf="mostrarErrorAvatar" class="error">
+        Debes seleccionar un avatar.
       </div>
 
       <button type="submit">Registrar</button>

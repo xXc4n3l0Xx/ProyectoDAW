@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -20,6 +20,8 @@ export class PerfilComponent {
     contrasena: '',
     avatar: ''
   };
+
+  mostrarErrorAvatar: boolean = false;
 
   avatares: string[] = [
     'assets/icons/icono1.png',
@@ -58,39 +60,48 @@ export class PerfilComponent {
 
   seleccionarAvatar(icono: string) {
     this.usuario.avatar = icono;
+    this.mostrarErrorAvatar = false;
   }
 
-actualizarPerfil() {
-  const token = this.authService.obtenerToken();
-  if (!token) {
-    alert("No autorizado");
-    this.router.navigate(['/']);
-    return;
-  }
-
-  const datosActualizados: any = {
-    id: this.usuario.id,
-    nombre: this.usuario.nombre,
-    correo: this.usuario.correo,
-    contrasena: this.usuario.contrasena,
-    avatar: this.usuario.avatar
-  };
-
-  this.http.put(`http://localhost:8082/api/usuarios/${this.usuario.id}`, datosActualizados, {
-    headers: { Authorization: `Bearer ${token}` }
-  }).subscribe({
-    next: () => {
-      alert('Datos actualizados correctamente. Debes volver a iniciar sesión.');
-      this.authService.cerrarSesion();
-      this.router.navigate(['/']);
-    },
-    error: (err) => {
-      alert('Error al actualizar: ' + (err.error.message || 'Intenta más tarde'));
+  actualizarPerfil(form: NgForm) {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
     }
-  });
-}
 
+    if (!this.usuario.avatar) {
+      this.mostrarErrorAvatar = true;
+      return;
+    }
 
+    const token = this.authService.obtenerToken();
+    if (!token) {
+      alert("No autorizado");
+      this.router.navigate(['/']);
+      return;
+    }
+
+    const datosActualizados = {
+      id: this.usuario.id,
+      nombre: this.usuario.nombre,
+      correo: this.usuario.correo,
+      contrasena: this.usuario.contrasena,
+      avatar: this.usuario.avatar
+    };
+
+    this.http.put(`http://localhost:8082/api/usuarios/${this.usuario.id}`, datosActualizados, {
+      headers: { Authorization: `Bearer ${token}` }
+    }).subscribe({
+      next: () => {
+        alert('Datos actualizados correctamente. Debes volver a iniciar sesión.');
+        this.authService.cerrarSesion();
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        alert('Error al registrar: ' + (err.error?.message || 'Ya existe el usuario o correo'));
+      }
+    });
+  }
 
   cancelar() {
     this.router.navigate(['/dashboard']);

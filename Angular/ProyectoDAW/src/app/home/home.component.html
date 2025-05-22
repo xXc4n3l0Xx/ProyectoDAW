@@ -4,17 +4,26 @@
 
 <div class="fondo">
   <div class="panel top-jugadores">
-    <h3>Top 5 jugadores</h3>
-    <ul>
-      <li *ngFor="let jugador of topJugadores">
-        {{ jugador.nombre }} - {{ jugador.puntuacion }} pts
-      </li>
-    </ul>
+    <h3>🔥Top 5 jugadores🔥</h3>
+    <div *ngFor="let jugador of topJugadores; let i = index" [ngClass]="{ 'primer-lugar': i === 0 }" class="jugador-item">
+      <div [ngClass]="{ 'avatar-oro-animado': i === 0 }">
+        <img *ngIf="jugador.avatar"
+             [src]="jugador.avatar"
+             alt="Avatar"
+             width="48"
+             height="48"
+             style="border-radius: 50%;">
+      </div>
+      <div class="jugador-datos">
+        <strong>{{ jugador.nombre }}</strong>
+        <span>{{ jugador.puntuacion }} pts</span>
+      </div>
+    </div>
   </div>
 
   <div class="video-panel">
     <div class="video-msg-box video-msg-superior">
-      <p>El gameplay mostrado puede variar en la versión final.</p>
+      <p class="aviso-final">El gameplay mostrado puede variar en la versión final.</p>
     </div>
 
     <video autoplay muted loop playsinline preload="auto">
@@ -24,7 +33,7 @@
 
     <div class="video-msg-box video-msg-inferior">
       <p>¿Aún no eres parte?</p>
-      <button class="registro-btn" (click)="irARegistro()">Únete a nuestra comunidad</button>
+      <button class="registro-btn ampliar" (click)="irARegistro()">Únete a nuestra comunidad</button>
     </div>
   </div>
 

@@ -59,12 +59,14 @@ export class HiloComponent implements OnInit {
     const token = localStorage.getItem('jwt');
     if (!token || !this.usuarioLogueado) return;
 
+    if (!this.nuevoPost || this.nuevoPost.trim() === '') return;
+
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
     const nuevo = {
       idUsuario: this.usuarioLogueado.id,
       idThread: this.idHilo,
-      contenido: this.nuevoPost
+      contenido: this.nuevoPost.trim()
     };
 
     this.http.post(`http://localhost:8082/api/posts`, nuevo, { headers }).subscribe({

@@ -1,28 +1,44 @@
 <div class="fondo">
   <div class="contenido">
     <h2>Editar datos de usuario</h2>
-    <form (ngSubmit)="actualizarPerfil()">
+
+    <form #form="ngForm" (ngSubmit)="actualizarPerfil(form)">
       <input
         type="text"
         [(ngModel)]="usuario.nombre"
         name="nombre"
-        placeholder="Nombre"
+        placeholder="Nickname"
         required
+        #nombreInput="ngModel"
       />
+      <div *ngIf="nombreInput.invalid && nombreInput.touched" class="error">
+        El nombre es obligatorio.
+      </div>
+
       <input
         type="email"
         [(ngModel)]="usuario.correo"
         name="correo"
         placeholder="Correo"
         required
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+        #correoInput="ngModel"
       />
+      <div *ngIf="correoInput.invalid && correoInput.touched" class="error">
+        Ingresa un correo válido.
+      </div>
+
       <input
         type="password"
         [(ngModel)]="usuario.contrasena"
         name="contrasena"
         placeholder="Contraseña"
         required
+        #contrasenaInput="ngModel"
       />
+      <div *ngIf="contrasenaInput.invalid && contrasenaInput.touched" class="error">
+        La contraseña es obligatoria.
+      </div>
 
       <p class="aviso">
         Por seguridad, debes ingresar tu contraseña actual o una nueva para guardar los cambios.
@@ -37,6 +53,9 @@
           (click)="seleccionarAvatar(icono)"
           class="avatar-option"
         />
+      </div>
+      <div *ngIf="mostrarErrorAvatar" class="error">
+        Debes seleccionar un avatar.
       </div>
 
       <button type="submit">Actualizar</button>

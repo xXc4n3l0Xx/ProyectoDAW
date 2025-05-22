@@ -1,22 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: black;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, span, li, button, label, strong, em, a {
+  color: white;
+  text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+input, textarea {
+  color: black !important;
+  text-shadow: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: black;
+  text-shadow: none;
+}
+
 .fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
   background-image: url('/assets/foro.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
-  padding: 40px 0;
-  color: white;
-  font-family: Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contenido {
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 40px;
   width: 60%;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 800px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.contenido-scrollable {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px 40px 10px 40px;
+}
+
+.contenido-fijo {
+  padding: 10px 40px 30px 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 input, textarea, button {
@@ -32,6 +83,11 @@ button {
   background-color: #4CAF50;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e8e41;
 }
 
 .tema-link {
@@ -52,8 +108,24 @@ button {
   font-size: 0.9rem;
   border: none;
   border-radius: 5px;
-  margin-top: 5px;
   cursor: pointer;
   width: auto;
   display: inline-block;
+}
+
+.lista-tema {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.tema-info {
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+h2 {
+  text-align: center;
 }

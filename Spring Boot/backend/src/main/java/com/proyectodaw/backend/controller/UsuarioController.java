@@ -3,6 +3,7 @@ package com.proyectodaw.backend.controller;
 import com.proyectodaw.backend.dto.AuthResponseDTO;
 import com.proyectodaw.backend.dto.LoginRequest;
 import com.proyectodaw.backend.dto.UsuarioResponseDTO;
+import com.proyectodaw.backend.dto.UsuarioTopDTO;
 import com.proyectodaw.backend.model.Estado;
 import com.proyectodaw.backend.model.Rol;
 import com.proyectodaw.backend.model.Usuario;
@@ -17,6 +18,9 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Map;
 import java.sql.Timestamp;
 import java.util.Optional;
+import java.util.List;
+
+
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -75,19 +79,30 @@ public class UsuarioController {
         }
 
         Optional<Usuario> usuarioOpt = usuarioService.buscarPorId(id);
-        if (usuarioOpt.isPresent()) {
-            Usuario usuario = usuarioOpt.get();
-            usuario.setNombre(datos.getNombre());
-            usuario.setCorreo(datos.getCorreo());
-            usuario.setContrasena(usuarioService.encriptarContrasena(datos.getContrasena()));
-            usuario.setAvatar(datos.getAvatar());
-
-            Usuario actualizado = usuarioService.actualizarUsuario(usuario);
-            return ResponseEntity.ok(construirDTO(actualizado));
+        if (usuarioOpt.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
         }
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+        Optional<Usuario> correoRepetido = usuarioRepository.findByCorreo(datos.getCorreo());
+        if (correoRepetido.isPresent() && !correoRepetido.get().getId().equals(id)) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Ya existe un usuario con ese correo");
+        }
+
+        Optional<Usuario> nombreRepetido = usuarioRepository.findByNombre(datos.getNombre());
+        if (nombreRepetido.isPresent() && !nombreRepetido.get().getId().equals(id)) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Ya existe un usuario con ese nombre");
+        }
+
+        Usuario usuario = usuarioOpt.get();
+        usuario.setNombre(datos.getNombre());
+        usuario.setCorreo(datos.getCorreo());
+        usuario.setContrasena(usuarioService.encriptarContrasena(datos.getContrasena()));
+        usuario.setAvatar(datos.getAvatar());
+
+        Usuario actualizado = usuarioService.actualizarUsuario(usuario);
+        return ResponseEntity.ok(construirDTO(actualizado));
     }
+
 
     private UsuarioResponseDTO construirDTO(Usuario u) {
         UsuarioResponseDTO dto = new UsuarioResponseDTO();
@@ -122,6 +137,21 @@ public class UsuarioController {
 
         return ResponseEntity.ok("Puntuación no actualizada (no es mayor a la actual)");
     }
+
+    @GetMapping("/top")
+    public List<UsuarioTopDTO> obtenerTop5Usuarios() {
+        List<Usuario> topUsuarios = usuarioRepository
+                .findTop5ByEstado_IdOrderByPuntuacionDescIdAsc(1);
+
+        return topUsuarios.stream().map(u -> {
+            UsuarioTopDTO dto = new UsuarioTopDTO();
+            dto.setNombre(u.getNombre());
+            dto.setAvatar(u.getAvatar());
+            dto.setPuntuacion(u.getPuntuacion());
+            return dto;
+        }).toList();
+    }
+
 
 
 }

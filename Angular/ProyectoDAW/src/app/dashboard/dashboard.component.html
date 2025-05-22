@@ -1,12 +1,11 @@
 <div class="fondo">
-  <div class="panel dashboard-contenido" *ngIf="usuario">
+  <div class="dashboard-contenido" *ngIf="usuario">
     <h2>Bienvenido, {{ usuario.nombre }}!</h2>
+    
     <img *ngIf="usuario.avatar"
          [src]="usuario.avatar"
-         alt="Avatar"
-         width="100"
-         height="100"
-         style="border-radius: 50%; border: 2px solid white; margin-bottom: 20px;" />
+         alt="Avatar" />
+
     <button (click)="jugar()">🎮 Jugar ahora</button>
     <button (click)="irAlForo()">Ir al foro</button>
     <button (click)="editarCuenta()">Editar cuenta</button>

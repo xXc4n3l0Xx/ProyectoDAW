@@ -1,10 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: black;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, span, li, button, label, strong, em {
+  color: white;
+  text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
 .fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   background-image: url('/assets/dash.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,14 +41,27 @@
   background-color: rgba(0, 0, 0, 0.6);
   padding: 40px;
   width: 60%;
-  max-width: 600px;
+  max-width: 800px;
   border-radius: 15px;
   text-align: center;
-  color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-button {
+.dashboard-contenido img {
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.dashboard-contenido h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.dashboard-contenido button {
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -31,4 +71,9 @@ button {
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-contenido button:hover {
+  background-color: #3e8e41;
 }

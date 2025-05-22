@@ -20,5 +20,4 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("tocando portal")
 		emit_signal("portal_touched")

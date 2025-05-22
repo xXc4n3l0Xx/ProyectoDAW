@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'foro', component: ForoComponent },
-  { path: 'tema/:id', component: HiloComponent },
+  { path: 'foro', component: ForoComponent, canActivate: [AuthGuard] },
+  { path: 'tema/:id', component: HiloComponent, canActivate: [AuthGuard] },
   { path: 'juego', component: GameComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];

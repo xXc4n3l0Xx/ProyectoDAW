@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 
@@ -16,7 +16,8 @@ export class RegistroComponent {
   correo: string = '';
   contrasena: string = '';
   avatar: string = '';
-  
+  mostrarErrorAvatar: boolean = false;
+
   avatares: string[] = [
     'assets/icons/icono1.png',
     'assets/icons/icono2.png',
@@ -38,43 +39,74 @@ export class RegistroComponent {
 
   seleccionarAvatar(icono: string) {
     this.avatar = icono;
+    this.mostrarErrorAvatar = false;
   }
 
-  registrar() {
-  if (!this.avatar) {
-    alert('Por favor selecciona un avatar.');
-    return;
-  }
-
-  const nuevoUsuario = {
-    nombre: this.nombre,
-    correo: this.correo,
-    contrasena: this.contrasena,
-    avatar: this.avatar
-  };
-
-  this.authService.registrar(nuevoUsuario).subscribe({
-    next: () => {
-      this.authService.login({
-        correo: this.correo,
-        contrasena: this.contrasena
-      }).subscribe({
-        next: (res) => {
-          this.authService.guardarToken(res.token);
-          localStorage.setItem('usuario', JSON.stringify(res.usuario));
-          this.router.navigate(['/dashboard']);
-        },
-        error: () => {
-          alert('Registro exitoso, pero hubo un error al iniciar sesión.');
-        }
-      });
-    },
-    error: (err) => {
-      alert('Error al registrar: ' + (err.error?.message || 'Ya existe el usuario o correo'));
+  registrar(form: NgForm) {
+    if (form.invalid) {
+      form.control.markAllAsTouched();
+      return;
     }
-  });
+
+    if (!this.avatar) {
+      this.mostrarErrorAvatar = true;
+      return;
+    }
+
+    const nuevoUsuario = {
+      nombre: this.nombre,
+      correo: this.correo,
+      contrasena: this.contrasena,
+      avatar: this.avatar
+    };
+
+    this.authService.registrar(nuevoUsuario).subscribe({
+      next: () => {
+        this.authService.login({
+          correo: this.correo,
+          contrasena: this.contrasena
+        }).subscribe({
+          next: (res) => {
+            this.authService.guardarToken(res.token);
+            localStorage.setItem('usuario', JSON.stringify(res.usuario));
+            this.router.navigate(['/dashboard']);
+          },
+          error: () => {
+            alert('Registro exitoso, pero hubo un error al iniciar sesión.');
+          }
+        });
+      },
+      error: (err) => {
+  console.log("ERROR COMPLETO:", err);
+  console.log("err.error:", err.error);
+
+  let mensaje = '';
+
+  if (typeof err.error === 'string') {
+    mensaje = err.error;
+  } else if (err.error?.message) {
+    mensaje = err.error.message;
+  }
+
+  if (err.status === 409) {
+    if (!mensaje) {
+      mensaje = 'Ya existe un usuario con ese nombre o correo.';
+    }
+
+    if (mensaje.includes('correo')) {
+      alert('Error: el correo ya está en uso por otro usuario.');
+    } else if (mensaje.includes('nombre')) {
+      alert('Error: el nombre ya está en uso por otro usuario.');
+    } else {
+      alert('Error: ' + mensaje);
+    }
+  } else {
+    alert('Error al actualizar: ' + (mensaje || 'Ocurrió un error inesperado.'));
+  }
 }
 
+    });
+  }
 
   volver() {
     this.router.navigate(['/']);

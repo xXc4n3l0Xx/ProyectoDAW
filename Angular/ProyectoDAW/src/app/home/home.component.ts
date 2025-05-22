@@ -5,13 +5,14 @@ import { LoginRequest } from '../models/login-request.model';
 import { AuthResponse } from '../models/auth-response.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, HttpClientModule]
 })
 export class HomeComponent {
   correo: string = '';
@@ -21,16 +22,11 @@ export class HomeComponent {
   mensajeExpiracion: string = '';
   mensajeExpiracionVisible: boolean = false;
 
-  topJugadores = [
-    { nombre: 'Marvin', puntuacion: 1200 },
-    { nombre: 'Ana', puntuacion: 950 },
-    { nombre: 'Luis', puntuacion: 870 },
-    { nombre: 'Carlos', puntuacion: 820 },
-    { nombre: 'Valeria', puntuacion: 800 }
-  ];
+  topJugadores: { nombre: string; avatar: string; puntuacion: number }[] = [];
 
   constructor(
     private authService: AuthService,
+    private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -43,10 +39,34 @@ export class HomeComponent {
       if (params['expirado'] === '1') {
         this.mensajeExpiracion = 'Tu sesión ha expirado. Por favor, inicia sesión de nuevo.';
         this.mensajeExpiracionVisible = true;
-
         setTimeout(() => {
           this.mensajeExpiracionVisible = false;
         }, 5000);
+      }
+    });
+
+    this.cargarTopJugadores();
+  }
+
+  cargarTopJugadores() {
+    this.http.get<any[]>('http://localhost:8082/api/usuarios/top').subscribe({
+      next: (res) => {
+        this.topJugadores = res;
+
+        while (this.topJugadores.length < 5) {
+          this.topJugadores.push({
+            nombre: '---',
+            avatar: '',
+            puntuacion: 0
+          });
+        }
+      },
+      error: () => {
+        this.topJugadores = Array(5).fill({
+          nombre: '---',
+          avatar: '',
+          puntuacion: 0
+        });
       }
     });
   }

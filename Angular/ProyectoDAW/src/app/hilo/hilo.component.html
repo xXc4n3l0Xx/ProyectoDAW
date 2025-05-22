@@ -1,40 +1,48 @@
 <div class="fondo">
   <div class="contenido">
-    <h2>Posts del Hilo</h2>
 
-    <ul *ngIf="posts.length > 0; else sinPosts">
-      <li *ngFor="let post of posts" class="post">
-        <img [src]="post.avatarUsuario" class="avatar" alt="avatar" />
-        <div>
-          <p><strong>{{ post.nombreUsuario }}</strong>: {{ post.contenido }}</p>
-          <p><em>{{ post.fechaCreacion | date:'short' }}</em></p>
-          <button *ngIf="puedeEliminar(post.nombreUsuario)"
-                  (click)="eliminarPost(post.id)"
-                  class="eliminar-btn">Eliminar</button>
-        </div>
-      </li>
-    </ul>
+    <div class="contenido-scrollable">
+      <h2>Posts del Hilo</h2>
 
-    <ng-template #sinPosts>
-      <p>No hay posts en este hilo.</p>
-    </ng-template>
-
-    <form (ngSubmit)="crearPost()">
-      <textarea [(ngModel)]="nuevoPost" name="post" placeholder="Escribe tu respuesta" required></textarea>
-      <button type="submit">Responder</button>
-    </form>
-
-    <div *ngIf="usuarioLogueado?.rol?.nombre === 'admin' && postsEliminados.length > 0">
-      <h3>Posts eliminados</h3>
-      <ul>
-        <li *ngFor="let post of postsEliminados">
-          <strong>{{ post.nombreUsuario }}</strong>: {{ post.contenido }}
-          <button (click)="reactivarPost(post.id)" class="eliminar-btn">Reactivar</button>
+      <ul *ngIf="posts.length > 0; else sinPosts">
+        <li *ngFor="let post of posts" class="post">
+          <img [src]="post.avatarUsuario" class="avatar" alt="avatar" />
+          <div class="post-content">
+            <p><strong>{{ post.nombreUsuario }}</strong>: {{ post.contenido }}</p>
+            <div class="post-info">
+              <p><em>{{ post.fechaCreacion | date:'short' }}</em></p>
+              <button *ngIf="puedeEliminar(post.nombreUsuario)"
+                      (click)="eliminarPost(post.id)"
+                      class="eliminar-btn">Eliminar</button>
+            </div>
+          </div>
         </li>
       </ul>
+
+      <ng-template #sinPosts>
+        <p class="mensaje-blanco">No hay posts en este hilo.</p>
+      </ng-template>
+
+      <div *ngIf="usuarioLogueado?.rol?.nombre === 'admin' && postsEliminados.length > 0">
+        <h3>Posts eliminados</h3>
+        <ul>
+          <li *ngFor="let post of postsEliminados">
+            <strong>{{ post.nombreUsuario }}</strong>: {{ post.contenido }}
+            <button (click)="reactivarPost(post.id)" class="eliminar-btn">Reactivar</button>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <button (click)="volver()">Volver al foro</button>
-    <button (click)="inicio()">Volver al inicio</button>
+    <div class="contenido-fijo">
+      <form (ngSubmit)="crearPost()">
+        <textarea [(ngModel)]="nuevoPost" name="post" placeholder="Escribe tu respuesta" required></textarea>
+        <button type="submit">Responder</button>
+      </form>
+
+      <button (click)="volver()">Volver al foro</button>
+      <button (click)="inicio()">Volver al inicio</button>
+    </div>
+
   </div>
 </div>

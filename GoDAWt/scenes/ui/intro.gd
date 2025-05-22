@@ -11,10 +11,11 @@ extends CanvasLayer
 var current_index = 0
 
 func _ready() -> void:
+	randomize()
 	for i in images.size():
 		images[i].visible = i == 0
 	
-	timer.wait_time = 3.0
+	timer.wait_time = 2.0
 	timer.connect("timeout", _on_timer_timeout)
 	timer.start()
 
