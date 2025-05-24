@@ -20,8 +20,6 @@ import java.sql.Timestamp;
 import java.util.Optional;
 import java.util.List;
 
-
-
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
@@ -54,7 +52,6 @@ public class UsuarioController {
         Usuario registrado = usuarioService.registrarUsuario(usuario);
         return construirDTO(registrado);
     }
-
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest login) {
@@ -102,7 +99,6 @@ public class UsuarioController {
         Usuario actualizado = usuarioService.actualizarUsuario(usuario);
         return ResponseEntity.ok(construirDTO(actualizado));
     }
-
 
     private UsuarioResponseDTO construirDTO(Usuario u) {
         UsuarioResponseDTO dto = new UsuarioResponseDTO();
@@ -152,6 +148,41 @@ public class UsuarioController {
         }).toList();
     }
 
+    @GetMapping("/todos")
+    public List<UsuarioResponseDTO> obtenerTodos(@RequestHeader("Authorization") String token) {
+        String correo = jwtUtil.getCorreoDesdeToken(token.replace("Bearer ", ""));
+        Usuario admin = usuarioRepository.findByCorreoAndEstado_Id(correo, 1)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "No autorizado"));
 
+        if (!"admin".equalsIgnoreCase(admin.getRol().getNombre())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Solo administradores pueden ver esta lista");
+        }
+
+        return usuarioRepository.findAll().stream()
+                .map(this::construirDTO)
+                .toList();
+    }
+
+    @PutMapping("/{id}/estado/{nuevoEstado}")
+    public ResponseEntity<?> cambiarEstadoUsuario(@PathVariable Integer id, @PathVariable Integer nuevoEstado,
+                                                  @RequestHeader("Authorization") String token) {
+        String correo = jwtUtil.getCorreoDesdeToken(token.replace("Bearer ", ""));
+        Usuario admin = usuarioRepository.findByCorreoAndEstado_Id(correo, 1)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "No autorizado"));
+
+        if (!"admin".equalsIgnoreCase(admin.getRol().getNombre())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Solo administradores pueden cambiar el estado");
+        }
+
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+        if (usuarioOpt.isPresent()) {
+            Usuario usuario = usuarioOpt.get();
+            usuario.setEstado(new Estado(nuevoEstado));
+            usuarioRepository.save(usuario);
+            return ResponseEntity.ok("Estado actualizado");
+        }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+    }
 
 }

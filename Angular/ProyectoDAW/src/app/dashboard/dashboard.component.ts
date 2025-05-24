@@ -20,7 +20,7 @@ export class DashboardComponent {
   ) {
     const usuarioGuardado = localStorage.getItem('usuario');
     if (usuarioGuardado) {
-      this.usuario = JSON.parse(usuarioGuardado);
+      this.usuario = JSON.parse(usuarioGuardado) as Usuario;
     }
 
     if (this.authService.isTokenExpirado()) {
@@ -61,4 +61,9 @@ export class DashboardComponent {
     this.authService.cerrarSesion();
     this.router.navigate(['/']);
   }
+
+  verUsuarios() {
+  this.router.navigate(['/usuarios']);
+}
+
 }

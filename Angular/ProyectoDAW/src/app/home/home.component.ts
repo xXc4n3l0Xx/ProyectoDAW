@@ -15,7 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [CommonModule, FormsModule, HttpClientModule]
 })
 export class HomeComponent {
-  correo: string = '';
+  identificador: string = '';
   contrasena: string = '';
   error: string = '';
 
@@ -73,7 +73,7 @@ export class HomeComponent {
 
   onLogin() {
     const datos: LoginRequest = {
-      correo: this.correo,
+      correo: this.identificador,
       contrasena: this.contrasena
     };
 
@@ -84,7 +84,7 @@ export class HomeComponent {
         this.router.navigate(['/dashboard']);
       },
       error: () => {
-        this.error = 'Correo o contraseña incorrectos';
+        this.error = 'Error al iniciar sesion, verifique sus credenciales o el estado de su cuenta';
       }
     });
   }

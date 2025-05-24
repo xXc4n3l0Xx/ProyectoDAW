@@ -1,0 +1,16 @@
+<div class="fondo">
+  <div class="contenido">
+    <h2>Usuarios registrados</h2>
+    <ul>
+      <li *ngFor="let u of usuarios">
+        <strong>{{ u.nombre }}</strong> - {{ u.correo }}
+        <span [class.inactivo]="u.estado === 'Inactivo'">({{ u.estado }})</span>
+        <button *ngIf="u.estado === 'Activo' && u.id !== usuarioActual?.id" (click)="cambiarEstado(u.id, 2)">
+        Eliminar
+        </button>
+        <button *ngIf="u.estado === 'Inactivo'" (click)="cambiarEstado(u.id, 1)">Reactivar</button>
+      </li>
+    </ul>
+    <button routerLink="/dashboard">Volver</button>
+  </div>
+</div>

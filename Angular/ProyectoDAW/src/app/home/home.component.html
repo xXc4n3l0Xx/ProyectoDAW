@@ -40,7 +40,7 @@
   <div class="panel login-panel">
     <h2>Iniciar sesión</h2>
     <form (ngSubmit)="onLogin()">
-      <input type="email" [(ngModel)]="correo" name="correo" placeholder="Correo" required />
+      <input type="text" [(ngModel)]="identificador" name="correo" placeholder="Correo o Nickname" required />
       <input type="password" [(ngModel)]="contrasena" name="contrasena" placeholder="Contraseña" required />
       <button type="submit">Ingresar</button>
     </form>

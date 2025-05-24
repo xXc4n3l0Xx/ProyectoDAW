@@ -101,7 +101,7 @@ export class RegistroComponent {
       alert('Error: ' + mensaje);
     }
   } else {
-    alert('Error al actualizar: ' + (mensaje || 'Ocurrió un error inesperado.'));
+    alert((mensaje || 'Ya existe un usuario con ese nombre o correo'));
   }
 }
 

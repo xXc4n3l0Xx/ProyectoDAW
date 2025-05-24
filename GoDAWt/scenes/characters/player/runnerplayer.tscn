@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dj6iwgchc5lrv"]
+[gd_scene load_steps=32 format=3 uid="uid://dj6iwgchc5lrv"]
 
 [ext_resource type="Script" uid="uid://d4kv7eh5isch6" path="res://scenes/characters/player/runner_player.gd" id="1_fjqbq"]
 [ext_resource type="Texture2D" uid="uid://boypscqu4h1uf" path="res://assets/characters/alucardfinal.png" id="2_e8axk"]
@@ -12,10 +12,9 @@
 [ext_resource type="Script" uid="uid://cbwc2mrvbhbck" path="res://scenes/characters/player/state/knockback_state.gd" id="10_r36qr"]
 [ext_resource type="PackedScene" uid="uid://lq0rn34jcibf" path="res://scenes/components/hitbox/hitbox.tscn" id="11_v3xfu"]
 [ext_resource type="AudioStream" uid="uid://crukcj7wgjd67" path="res://assets/sounds/player/Player Death.mp3" id="13_fjqbq"]
-[ext_resource type="AudioStream" uid="uid://ddjvarfh6ks44" path="res://assets/sounds/player/Shoot.wav" id="13_t2gqk"]
 [ext_resource type="AudioStream" uid="uid://d14uji7ty00cy" path="res://assets/sounds/player/Punches.wav" id="14_6pa7a"]
 [ext_resource type="AudioStream" uid="uid://cqfm1pxp8td2g" path="res://assets/sounds/player/Jumps.wav" id="15_fn30y"]
-[ext_resource type="AudioStream" uid="uid://djant6c5e4xsv" path="res://assets/sounds/player/Laugh.wav" id="16_rpyf5"]
+[ext_resource type="AudioStream" uid="uid://ddjvarfh6ks44" path="res://assets/sounds/player/Shoot.wav" id="16_rpyf5"]
 [ext_resource type="AudioStream" uid="uid://b28btstrgc4a8" path="res://assets/sounds/player/Hurt.wav" id="17_1pbnf"]
 [ext_resource type="Texture2D" uid="uid://r778j0xbh5v4" path="res://assets/characters/healtbars/vacio.png" id="18_615yp"]
 [ext_resource type="Texture2D" uid="uid://c0c5fvdrs4qlh" path="res://assets/characters/healtbars/lleno.png" id="19_xtavh"]
@@ -256,7 +255,7 @@ shape = SubResource("CapsuleShape2D_djydg")
 [node name="Sounds" type="Node" parent="."]
 
 [node name="GunSound" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("13_t2gqk")
+stream = ExtResource("16_rpyf5")
 volume_db = -20.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="Sounds"]
@@ -272,10 +271,6 @@ stream = ExtResource("15_fn30y")
 volume_db = -10.0
 max_polyphony = 4
 
-[node name="LaughSound" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("16_rpyf5")
-max_polyphony = 4
-
 [node name="HurtSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("17_1pbnf")
 max_polyphony = 4
@@ -286,6 +281,7 @@ collision_mask = 8
 collide_with_areas = true
 
 [node name="HealthCanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
 
@@ -300,6 +296,7 @@ texture_under = ExtResource("18_615yp")
 texture_progress = ExtResource("19_xtavh")
 
 [node name="DiamondsCanvasBar" type="CanvasLayer" parent="."]
+visible = false
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
 

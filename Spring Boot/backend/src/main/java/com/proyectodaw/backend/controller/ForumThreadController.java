@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.proyectodaw.backend.dto.ForumThreadUpdateDTO;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -66,7 +65,6 @@ public class ForumThreadController {
 
         return threadService.obtenerHilosPorEstado(2);
     }
-
 
     @DeleteMapping("/{idHilo}/usuario/{idUsuario}")
     public void eliminarHilo(@PathVariable Integer idHilo, @PathVariable Integer idUsuario) {

@@ -9,6 +9,7 @@
     <button (click)="jugar()">🎮 Jugar ahora</button>
     <button (click)="irAlForo()">Ir al foro</button>
     <button (click)="editarCuenta()">Editar cuenta</button>
+    <button *ngIf="usuario?.rol?.nombre === 'admin'" (click)="verUsuarios()">Administrar usuarios</button>
     <button (click)="cerrarSesion()">Cerrar sesión</button>
   </div>
 </div>

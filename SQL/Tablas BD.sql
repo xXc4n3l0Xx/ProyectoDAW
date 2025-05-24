@@ -97,6 +97,7 @@ CREATE TABLE usuario (
   avatar VARCHAR(500),
   fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   puntuacion INT DEFAULT 0,
+  puntuacion_max INT DEFAULT 0,
   id_estado INT DEFAULT 1,
   id_rol INT DEFAULT 2,
   FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
@@ -187,12 +188,3 @@ select * from estado
 select * from rol
 
 delete from usuario;
-
-
-SELECT u.id_usuario, u.nombre, r.nombre AS rol
-FROM usuario u
-JOIN rol r ON u.id_rol = r.id_rol
-WHERE u.id_usuario = 10;
-
-
-SELECT * FROM usuario WHERE correo = 'admin@foro.com';

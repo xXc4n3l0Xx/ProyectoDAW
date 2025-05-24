@@ -33,5 +33,4 @@ public class ForumThread {
     public ForumThread(Integer id) {
         this.id = id;
     }
-
 }

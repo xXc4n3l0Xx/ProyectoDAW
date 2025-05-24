@@ -4,5 +4,5 @@ export interface Usuario {
   correo: string;
   contrasena: string;
   avatar: string;
-  rol: string;
+  rol: { nombre: string };
 }

@@ -225,8 +225,8 @@ input::placeholder {
 }
 
 .avatar-oro-animado img {
-  width: 44px;
-  height: 44px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   display: block;
   z-index: 2;
