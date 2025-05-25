@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ForoComponent } from './foro/foro.component';
 import { HiloComponent } from './hilo/hilo.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { WikiComponent } from './wiki/wiki.component';
 import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
   { path: 'foro', component: ForoComponent, canActivate: [AuthGuard] },
   { path: 'tema/:id', component: HiloComponent, canActivate: [AuthGuard] },
+  { path: 'wiki', component: WikiComponent },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard, AdminGuard] },
   { path: '**', redirectTo: '' }
 ];

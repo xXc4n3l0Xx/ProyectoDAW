@@ -1,0 +1,20 @@
+<div class="fondo">
+  <div class="contenedor-scroll">
+    <div *ngFor="let enemigo of enemigos" class="tarjeta-enemigo">
+      <div class="imagen-enemigo">
+        <img [src]="enemigo.gif" [alt]="enemigo.nombre">
+      </div>
+      <div class="contenido-enemigo">
+        <h3 class="titulo">{{ enemigo.nombre }}</h3>
+        <p class="subtitulo">{{ enemigo.descripcion }}</p>
+        <div class="seccion">
+          <p>{{ enemigo.lore }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="boton-fijo">
+    <button (click)="irADashboard()">Volver</button>
+  </div>
+</div>

@@ -1,10 +1,14 @@
+<div *ngIf="mostrarIntro" class="intro-overlay">
+  <h1 class="intro-text">El castillo se alimenta de almas… la tuya es la próxima</h1>
+</div>
+
 <div *ngIf="mensajeExpiracionVisible" class="alerta-expiracion">
   {{ mensajeExpiracion }}
 </div>
 
-<div class="fondo">
+<div class="fondo" [class.opaco]="mostrarIntro">
   <div class="panel top-jugadores">
-    <h3>🔥Top 5 jugadores🔥</h3>
+    <h3>⚔️ Campeones del Reino Roto ⚔️</h3>
     <div *ngFor="let jugador of topJugadores; let i = index" [ngClass]="{ 'primer-lugar': i === 0 }" class="jugador-item">
       <div [ngClass]="{ 'avatar-oro-animado': i === 0 }">
         <img *ngIf="jugador.avatar"

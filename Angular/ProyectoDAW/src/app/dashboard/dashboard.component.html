@@ -1,6 +1,6 @@
 <div class="fondo">
   <div class="dashboard-contenido" *ngIf="usuario">
-    <h2>Bienvenido, {{ usuario.nombre }}!</h2>
+    <h2>El Reino Roto recuerda tu nombre, {{ usuario.nombre }}!</h2>
     
     <img *ngIf="usuario.avatar"
          [src]="usuario.avatar"
@@ -8,6 +8,7 @@
 
     <button (click)="jugar()">🎮 Jugar ahora</button>
     <button (click)="irAlForo()">Ir al foro</button>
+    <button (click)="irAWiki()">Engendros del Ocaso</button>
     <button (click)="editarCuenta()">Editar cuenta</button>
     <button *ngIf="usuario?.rol?.nombre === 'admin'" (click)="verUsuarios()">Administrar usuarios</button>
     <button (click)="cerrarSesion()">Cerrar sesión</button>

@@ -14,15 +14,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrls: ['./home.component.css'],
   imports: [CommonModule, FormsModule, HttpClientModule]
 })
+
 export class HomeComponent {
   identificador: string = '';
   contrasena: string = '';
   error: string = '';
-
   mensajeExpiracion: string = '';
   mensajeExpiracionVisible: boolean = false;
-
   topJugadores: { nombre: string; avatar: string; puntuacion: number }[] = [];
+  mostrarIntro: boolean = true;
 
   constructor(
     private authService: AuthService,
@@ -46,27 +46,22 @@ export class HomeComponent {
     });
 
     this.cargarTopJugadores();
+
+    setTimeout(() => {
+      this.mostrarIntro = false;
+    }, 3000);
   }
 
   cargarTopJugadores() {
     this.http.get<any[]>('http://localhost:8082/api/usuarios/top').subscribe({
       next: (res) => {
         this.topJugadores = res;
-
         while (this.topJugadores.length < 5) {
-          this.topJugadores.push({
-            nombre: '---',
-            avatar: '',
-            puntuacion: 0
-          });
+          this.topJugadores.push({ nombre: '---', avatar: '', puntuacion: 0 });
         }
       },
       error: () => {
-        this.topJugadores = Array(5).fill({
-          nombre: '---',
-          avatar: '',
-          puntuacion: 0
-        });
+        this.topJugadores = Array(5).fill({ nombre: '---', avatar: '', puntuacion: 0 });
       }
     });
   }

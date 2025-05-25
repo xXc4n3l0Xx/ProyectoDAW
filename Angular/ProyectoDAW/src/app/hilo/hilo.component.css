@@ -74,14 +74,23 @@ textarea::placeholder {
 }
 
 button {
-  background-color: #4CAF50;
-  color: white;
+  background: linear-gradient(to right, #1d331d, #2a672a);
+  border: 1px solid #5ad75a;
+  color: #e2e2e2;
+  font-weight: bold;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 0 12px #000;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-  background-color: #3e8e41;
+  transform: scale(1.04);
+  box-shadow: 0 0 18px #38ff38;
 }
 
 .avatar {
@@ -117,13 +126,23 @@ button:hover {
 }
 
 .eliminar-btn {
-  background-color: #e53935;
-  padding: 5px 10px;
-  font-size: 0.8rem;
-  width: auto;
-  border: none;
-  border-radius: 5px;
+  background: linear-gradient(to right, #600000, #a10000);
+  border: 1px solid #ff5e5e;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  border-radius: 6px;
   cursor: pointer;
+  box-shadow: 0 0 10px #000;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: auto;
+  display: inline-block;
+}
+
+.eliminar-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px #ff5e5e;
 }
 
 h2, h3 {
@@ -133,7 +152,6 @@ h2, h3 {
 .post-content p {
   margin: 0;
 }
-
 
 textarea {
   color: black !important;

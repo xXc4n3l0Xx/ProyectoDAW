@@ -62,18 +62,21 @@ body, h1, h2, h3, h4, h5, h6, p, span, li, button, label, strong, em {
 }
 
 .dashboard-contenido button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
+  background: linear-gradient(to right, #1d331d, #2a672a);
+  border: 1px solid #5ad75a;
+  color: #e2e2e2;
+  font-weight: bold;
   padding: 12px;
   margin-top: 10px;
   font-size: 1rem;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 0 12px #000;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .dashboard-contenido button:hover {
-  background-color: #3e8e41;
+  transform: scale(1.04);
+  box-shadow: 0 0 18px #38ff38;
 }

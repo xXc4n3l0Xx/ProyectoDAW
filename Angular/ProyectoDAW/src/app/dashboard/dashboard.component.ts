@@ -66,4 +66,9 @@ export class DashboardComponent {
   this.router.navigate(['/usuarios']);
 }
 
+  irAWiki() {
+  this.router.navigate(['/wiki']);
+}
+
+
 }

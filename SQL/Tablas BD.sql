@@ -1,6 +1,5 @@
 -- Crear base de datos
 CREATE DATABASE proyectodaw;
-\c proyectodaw;
 
 -- Tabla estado (activo/inactivo)
 CREATE TABLE estado (
@@ -97,7 +96,6 @@ CREATE TABLE usuario (
   avatar VARCHAR(500),
   fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   puntuacion INT DEFAULT 0,
-  puntuacion_max INT DEFAULT 0,
   id_estado INT DEFAULT 1,
   id_rol INT DEFAULT 2,
   FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
@@ -180,11 +178,3 @@ INSERT INTO estado (descripcion) VALUES ('Inactivo'); -- id_estado = 2
 -- Roles
 INSERT INTO rol (nombre) VALUES ('admin'); -- id_rol = 1
 INSERT INTO rol (nombre) VALUES ('usuario'); -- id_rol = 2
-
-select * from usuario
-select * from forum_thread
-select * from post
-select * from estado
-select * from rol
-
-delete from usuario;

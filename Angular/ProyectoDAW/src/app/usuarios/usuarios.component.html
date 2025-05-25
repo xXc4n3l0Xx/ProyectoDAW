@@ -8,7 +8,7 @@
         <button *ngIf="u.estado === 'Activo' && u.id !== usuarioActual?.id" (click)="cambiarEstado(u.id, 2)">
         Eliminar
         </button>
-        <button *ngIf="u.estado === 'Inactivo'" (click)="cambiarEstado(u.id, 1)">Reactivar</button>
+        <button *ngIf="u.estado === 'Inactivo'" (click)="cambiarEstado(u.id, 1)" class="reactivar">Reactivar</button>
       </li>
     </ul>
     <button routerLink="/dashboard">Volver</button>
