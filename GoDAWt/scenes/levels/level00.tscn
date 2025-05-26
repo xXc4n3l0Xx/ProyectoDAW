@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cbjuwv5twcx6a"]
+[gd_scene load_steps=18 format=4 uid="uid://cbjuwv5twcx6a"]
 
 [ext_resource type="Script" uid="uid://dm1sb0t4p4kwu" path="res://scenes/levels/level00.gd" id="1_cy7co"]
 [ext_resource type="PackedScene" uid="uid://c2jdglf1he6jn" path="res://scenes/levels/world_boundary.tscn" id="2_8v373"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://boh3bxaidh3va" path="res://scenes/collectibles/diamond.tscn" id="14_t845q"]
 [ext_resource type="AudioStream" uid="uid://cn0pgr2gb2i6c" path="res://assets/sounds/ost/Simian Segue.mp3" id="15_5aywb"]
 [ext_resource type="PackedScene" uid="uid://dbwb5lvh67c25" path="res://scenes/collectibles/luzio.tscn" id="16_cy7co"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy7co"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 221)
@@ -52,103 +55,110 @@ position = Vector2(3928, 69)
 script = null
 
 [node name="Label" type="Label" parent="."]
-offset_left = 168.0
-offset_top = -49.0
-offset_right = 382.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 66.0
+offset_top = 105.0
+offset_right = 306.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
 text = "Usa \"A\" y \"D\" para moverte 
 a la Izquierda o Derecha"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Label"]
-layout_mode = 0
-offset_left = 390.0
-offset_top = 12.0
-offset_right = 630.0
-offset_bottom = 61.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label2" type="Label" parent="."]
+offset_left = 405.0
+offset_top = 105.0
+offset_right = 682.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
-text = "Usa \"L\" para saltar"
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "Usa \"L\" o \"SpaceBar\" para saltar"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Label/Label"]
-layout_mode = 0
-offset_left = 315.0
-offset_top = -9.0
-offset_right = 760.0
-offset_bottom = 40.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label3" type="Label" parent="."]
+offset_left = 877.0
+offset_top = 104.0
+offset_right = 1154.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
-text = "Algunos enemigos pueden 
-seguirte si te acercas"
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "Algunos enemigos reaccionan
+si te acercas mucho a ellos"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Label/Label/Label"]
-layout_mode = 0
-offset_left = 361.0
-offset_top = 10.0
-offset_right = 806.0
-offset_bottom = 59.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label4" type="Label" parent="."]
+offset_left = 1316.0
+offset_top = 104.0
+offset_right = 1593.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
-text = "Usa \"J\"  o \"K\" para atacar"
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "Pulsa \"J\" o \"K\" para atacar"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Label/Label/Label/Label"]
-layout_mode = 0
-offset_left = 649.0
-offset_top = -20.0
-offset_right = 1094.0
-offset_bottom = 29.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label5" type="Label" parent="."]
+offset_left = 1849.0
+offset_top = 105.0
+offset_right = 2055.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
-text = "Hay enemigos que  no 
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "No todos los enemigos
 pueden ser eliminados"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Label/Label/Label/Label/Label"]
-layout_mode = 0
-offset_left = 554.0
-offset_right = 999.0
-offset_bottom = 49.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label6" type="Label" parent="."]
+offset_left = 2248.0
+offset_top = 104.0
+offset_right = 2454.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
-text = "Otros te atacaran incluso 
-antes de verlos, es mejor correr"
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "Puedes recibir ataques de
+enemigos que aún no veas"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Label/Label/Label/Label/Label/Label"]
-layout_mode = 0
-offset_left = 662.0
-offset_top = -4.0
-offset_right = 1143.0
-offset_bottom = 45.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label7" type="Label" parent="."]
+offset_left = 2874.0
+offset_top = 105.0
+offset_right = 3111.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
-text = "Necesitas 5 diamantes para que se active el portal al 
-siguiente nivel, asegurate de recogerlos todos"
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "Puedes recibir ataques de
+enemigos que aún no veas"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Label/Label/Label/Label/Label/Label"]
-layout_mode = 0
-offset_left = 1005.0
-offset_top = 439.0
-offset_right = 1486.0
-offset_bottom = 488.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="Label8" type="Label" parent="."]
+offset_left = 3254.0
+offset_top = 105.0
+offset_right = 3491.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
-text = "Encontraste un secreto :)"
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "Recoge los 5 diamantes que hay en cada
+nivel para activar el portal al siguiente"
 horizontal_alignment = 1
 
-[node name="Lanzador" parent="Label/Label/Label/Label/Label" instance=ExtResource("10_4juy0")]
-position = Vector2(933, -149)
-
-[node name="Lanzador2" parent="Label/Label/Label/Label/Label" instance=ExtResource("10_4juy0")]
-position = Vector2(1042, -152)
-
-[node name="Lanzador3" parent="Label/Label/Label/Label/Label" instance=ExtResource("10_4juy0")]
-position = Vector2(812, -154)
+[node name="Label9" type="Label" parent="."]
+offset_left = 3598.0
+offset_top = 370.0
+offset_right = 3861.0
+offset_bottom = 408.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_sp8ps")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
+text = "Encontraste un secreto, 
+todos los niveles poseen uno"
+horizontal_alignment = 1
 
 [node name="Thorns" parent="." instance=ExtResource("7_5aywb")]
 position = Vector2(860, 542)
@@ -209,3 +219,12 @@ position = Vector2(3763, 470)
 
 [node name="LevelTransition2" parent="." instance=ExtResource("9_54put")]
 position = Vector2(3299, 471)
+
+[node name="Lanzador" parent="." instance=ExtResource("10_4juy0")]
+position = Vector2(2468, -214)
+
+[node name="Lanzador2" parent="." instance=ExtResource("10_4juy0")]
+position = Vector2(2908, -210)
+
+[node name="Lanzador3" parent="." instance=ExtResource("10_4juy0")]
+position = Vector2(2689, -208)

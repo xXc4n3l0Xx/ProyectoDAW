@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://csd20bm423hov" path="res://assets/menus/kojima.png" id="1_i5xbi"]
 [ext_resource type="Script" uid="uid://casxi07p33yur" path="res://scenes/ui/intro.gd" id="1_v38ad"]
 [ext_resource type="Texture2D" uid="uid://c0hurv8nfwkxi" path="res://assets/menus/ubisoft.png" id="2_v38ad"]
-[ext_resource type="Texture2D" uid="uid://3gc8c4vd4ma1" path="res://assets/menus/valve.jpg" id="3_h1om3"]
 [ext_resource type="Texture2D" uid="uid://j4seiucwey8q" path="res://assets/menus/naughty dig.jpg" id="4_y8kkj"]
+[ext_resource type="Texture2D" uid="uid://c1dunsnwaa1fy" path="res://assets/menus/wii.png" id="5_v38ad"]
 
 [node name="Intro" type="CanvasLayer"]
 script = ExtResource("1_v38ad")
@@ -38,22 +38,20 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -93.5
-offset_bottom = 123.5
+offset_left = -37.0
+offset_top = -235.0
+offset_right = 37.0
+offset_bottom = 189.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_h1om3")
+texture = ExtResource("4_y8kkj")
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -241.0
-offset_right = 37.0
-offset_bottom = 183.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_y8kkj")
+texture = ExtResource("5_v38ad")
 
 [node name="Timer" type="Timer" parent="."]
