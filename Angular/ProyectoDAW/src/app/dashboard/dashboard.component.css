@@ -31,10 +31,31 @@ body, h1, h2, h3, h4, h5, h6, p, span, li, button, label, strong, em {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
+}
+
+.fondo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('/assets/humo.gif') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  animation: humoFlotante 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(1px);
+}
+
+@keyframes humoFlotante {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
 }
 
 .dashboard-contenido {
@@ -45,6 +66,17 @@ body, h1, h2, h3, h4, h5, h6, p, span, li, button, label, strong, em {
   border-radius: 15px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  z-index: 2;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dashboard-contenido img {
@@ -54,11 +86,24 @@ body, h1, h2, h3, h4, h5, h6, p, span, li, button, label, strong, em {
   width: 100px;
   height: 100px;
   object-fit: cover;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .dashboard-contenido h2 {
   margin-bottom: 20px;
   font-size: 1.8rem;
+  animation: parpadeo 3s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+  70% { opacity: 0.95; }
 }
 
 .dashboard-contenido button {
