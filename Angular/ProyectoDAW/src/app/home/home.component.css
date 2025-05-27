@@ -228,7 +228,7 @@ input::placeholder {
   border-radius: 50%;
   margin-right: 10px;
   animation: glowBorder 3s linear infinite;
-  background: linear-gradient(270deg, gold, orange, red, gold, yellow);
+  background: linear-gradient(270deg, gold, orange, red, #0ff, #2196f3, #4b0082);
   background-size: 600% 600%;
   display: flex;
   align-items: center;
@@ -238,11 +238,12 @@ input::placeholder {
 }
 
 .avatar-oro-animado img {
-  width: 100px;
-  height: 100px;
+  width: 90%;
+  height: 90%;
   object-fit: contain;
+  border-radius: 50%;
   display: block;
-  z-index: 2;
+  transform: translateY(0%) translateX(8%);
 }
 
 @keyframes glowBorder {

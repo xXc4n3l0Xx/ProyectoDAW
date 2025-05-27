@@ -62,8 +62,8 @@ offset_bottom = 142.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_sp8ps")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cy7co")
-text = "Usa \"A\" y \"D\" para moverte 
-a la Izquierda o Derecha"
+text = "Usa \"A\" y \"D\" o las flechas 
+de direccion para moverte"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]

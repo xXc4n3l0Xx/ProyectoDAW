@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhhy04x03j4wi"]
+[gd_scene load_steps=7 format=3 uid="uid://bhhy04x03j4wi"]
 
 [ext_resource type="Texture2D" uid="uid://csd20bm423hov" path="res://assets/menus/kojima.png" id="1_i5xbi"]
 [ext_resource type="Script" uid="uid://casxi07p33yur" path="res://scenes/ui/intro.gd" id="1_v38ad"]
 [ext_resource type="Texture2D" uid="uid://c0hurv8nfwkxi" path="res://assets/menus/ubisoft.png" id="2_v38ad"]
+[ext_resource type="AudioStream" uid="uid://cqkmk2uc78oyy" path="res://assets/menus/kept-you-waiting-huh.mp3" id="3_h1om3"]
 [ext_resource type="Texture2D" uid="uid://j4seiucwey8q" path="res://assets/menus/naughty dig.jpg" id="4_y8kkj"]
-[ext_resource type="Texture2D" uid="uid://c1dunsnwaa1fy" path="res://assets/menus/wii.png" id="5_v38ad"]
+[ext_resource type="AudioStream" uid="uid://coy1xnluxckvm" path="res://assets/menus/Dog Bark.mp3" id="5_h1om3"]
 
 [node name="Intro" type="CanvasLayer"]
 script = ExtResource("1_v38ad")
@@ -20,6 +21,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_i5xbi")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect"]
+stream = ExtResource("3_h1om3")
+volume_db = 6.0
+
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false
 anchors_preset = 15
@@ -34,7 +39,6 @@ grow_vertical = 2
 texture = ExtResource("2_v38ad")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,12 +50,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_y8kkj")
 
-[node name="TextureRect4" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_v38ad")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect3"]
+stream = ExtResource("5_h1om3")
+volume_db = 3.0
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,5 +1,5 @@
 -- Crear base de datos
-CREATE DATABASE proyectodaw;
+CREATE DATABASE ProyectoDAW;
 
 -- Tabla estado (activo/inactivo)
 CREATE TABLE estado (

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://coy1xnluxckvm"
+path="res://.godot/imported/Dog Bark.mp3-cf6bb9814960481c97723317fd11ca87.mp3str"
+
+[deps]
+
+source_file="res://assets/menus/Dog Bark.mp3"
+dest_files=["res://.godot/imported/Dog Bark.mp3-cf6bb9814960481c97723317fd11ca87.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
