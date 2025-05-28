@@ -2,7 +2,6 @@ package com.proyectodaw.backend.controller;
 
 import com.proyectodaw.backend.dto.PostRequestDTO;
 import com.proyectodaw.backend.dto.PostResponseDTO;
-import com.proyectodaw.backend.dto.PostUpdateDTO;
 import com.proyectodaw.backend.model.Estado;
 import com.proyectodaw.backend.model.ForumThread;
 import com.proyectodaw.backend.model.Post;
@@ -15,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -80,10 +80,11 @@ public class PostController {
 
     @PutMapping("/{idPost}")
     public PostResponseDTO editarPost(@PathVariable Integer idPost,
-                                      @RequestBody PostUpdateDTO dto,
+                                      @RequestBody Map<String, String> body,
                                       @RequestHeader("Authorization") String authHeader) {
         Integer idUsuario = obtenerIdDesdeToken(authHeader);
-        Post actualizado = postService.editarPost(idPost, idUsuario, dto.getContenido());
+        String nuevoContenido = body.get("contenido");
+        Post actualizado = postService.editarPost(idPost, idUsuario, nuevoContenido);
         return construirPostResponseDTO(actualizado);
     }
 

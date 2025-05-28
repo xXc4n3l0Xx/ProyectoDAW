@@ -11,10 +11,10 @@ import com.proyectodaw.backend.service.ForumThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import com.proyectodaw.backend.dto.ForumThreadUpdateDTO;
 import org.springframework.web.server.ResponseStatusException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/hilos")
@@ -79,8 +79,9 @@ public class ForumThreadController {
     @PutMapping("/{idHilo}/usuario/{idUsuario}")
     public ForumThreadResponseDTO editarHilo(@PathVariable Integer idHilo,
                                              @PathVariable Integer idUsuario,
-                                             @RequestBody ForumThreadUpdateDTO dto) {
-        ForumThread hilo = threadService.editarHilo(idHilo, idUsuario, dto.getTitulo());
+                                             @RequestBody Map<String, String> body) {
+        String nuevoTitulo = body.get("titulo");
+        ForumThread hilo = threadService.editarHilo(idHilo, idUsuario, nuevoTitulo);
 
         ForumThreadResponseDTO respuesta = new ForumThreadResponseDTO();
         respuesta.setId(hilo.getId());

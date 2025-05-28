@@ -178,3 +178,9 @@ INSERT INTO estado (descripcion) VALUES ('Inactivo'); -- id_estado = 2
 -- Roles
 INSERT INTO rol (nombre) VALUES ('admin'); -- id_rol = 1
 INSERT INTO rol (nombre) VALUES ('usuario'); -- id_rol = 2
+
+select * from usuario
+
+select * from forum_thread
+
+select * from post

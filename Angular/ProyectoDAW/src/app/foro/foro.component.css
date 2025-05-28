@@ -100,19 +100,25 @@ button:hover {
 }
 
 .tema-link {
-  color: #00ff99;
-  text-shadow: 0 0 5px #003322;
+  color: #ffdf4f !important;
+  text-shadow: 0 0 6px #000000, 0 0 12px #ffd700;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 6px;
   display: inline-block;
-  margin-bottom: 4px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .tema-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffd700;
   text-decoration: underline;
-  color: #3effcc;
+  color: #fffacd !important;
 }
+
 
 .eliminar-btn {
   background: linear-gradient(to right, #600000, #a10000);
@@ -148,4 +154,48 @@ button:hover {
 
 h2 {
   text-align: center;
+}
+
+.acciones-tema {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.btn-pequeno {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  font-weight: bold;
+  box-shadow: 0 0 6px #000;
+  cursor: pointer;
+  width: auto;
+}
+
+.btn-pequeno.editar-btn {
+  background: linear-gradient(to right, #1d331d, #2a672a);
+  border: 1px solid #5ad75a;
+  color: #e2e2e2;
+}
+
+.btn-pequeno.guardar-btn {
+  background: linear-gradient(to right, #003d99, #0073e6);
+  border: 1px solid #60aaff;
+  color: white;
+}
+
+.btn-pequeno.cancelar-btn {
+  background: linear-gradient(to right, #666666, #999999);
+  border: 1px solid #cccccc;
+  color: white;
+}
+
+.input-edicion {
+  margin-top: 5px;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
 }

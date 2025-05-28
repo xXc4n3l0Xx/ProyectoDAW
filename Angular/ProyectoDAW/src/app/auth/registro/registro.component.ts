@@ -42,16 +42,16 @@ export class RegistroComponent {
     this.mostrarErrorAvatar = false;
   }
 
-  registrar(form: NgForm) {
-    if (form.invalid) {
-      form.control.markAllAsTouched();
-      return;
-    }
+  registrar() {
+  if (!this.nombre || !this.correo || !this.contrasena) {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
 
-    if (!this.avatar) {
-      this.mostrarErrorAvatar = true;
-      return;
-    }
+  if (!this.avatar) {
+    this.mostrarErrorAvatar = true;
+    return;
+  }
 
     const nuevoUsuario = {
       nombre: this.nombre,

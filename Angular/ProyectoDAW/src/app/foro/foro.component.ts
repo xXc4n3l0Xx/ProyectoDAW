@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 
+
+
 interface Tema {
   id: number;
   titulo: string;
@@ -24,6 +26,8 @@ export class ForoComponent implements OnInit {
   temasEliminados: Tema[] = [];
   nuevoTitulo: string = '';
   usuario: { id: number, nombre: string, rol: { nombre: string } } | null = null;
+  editandoTemaId: number | null = null;
+  tituloEditado: string = '';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -116,4 +120,43 @@ export class ForoComponent implements OnInit {
   irATema(id: number) {
     this.router.navigate(['/tema', id]);
   }
+
+  iniciarEdicionTitulo(tema: Tema) {
+  this.editandoTemaId = tema.id;
+  this.tituloEditado = tema.titulo;
+}
+
+cancelarEdicion() {
+  this.editandoTemaId = null;
+  this.tituloEditado = '';
+}
+
+guardarTituloEditado(idTema: number) {
+  if (!this.tituloEditado.trim()) {
+    alert('El título no puede estar vacío.');
+    return;
+  }
+
+  const token = localStorage.getItem('jwt');
+  if (!this.usuario || !token) return;
+
+  const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+  this.http.put(`http://localhost:8082/api/hilos/${idTema}/usuario/${this.usuario.id}`,
+    { titulo: this.tituloEditado.trim() },
+    { headers }
+  ).subscribe({
+    next: () => {
+      this.cancelarEdicion();
+      this.cargarTemas();
+    },
+    error: () => alert('No se pudo actualizar el título.')
+  });
+}
+
+puedeEditar(nombreUsuarioTema: string): boolean {
+  if (!this.usuario) return false;
+  return this.usuario.nombre === nombreUsuarioTema || this.usuario.rol?.nombre.toLowerCase() === 'admin';
+}
+
 }

@@ -18,6 +18,9 @@ export class HiloComponent implements OnInit {
   postsEliminados: Post[] = [];
   nuevoPost: string = '';
   usuarioLogueado: { id: number; nombre: string; rol: { nombre: string } } | null = null;
+  tituloHilo: string = '';
+  modoEdicion: { [postId: number]: boolean } = {};
+  contenidoEditado: { [postId: number]: string } = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -27,19 +30,17 @@ export class HiloComponent implements OnInit {
 
   ngOnInit(): void {
     this.idHilo = Number(this.route.snapshot.paramMap.get('id'));
-
     const guardado = localStorage.getItem('usuario');
     if (guardado) {
       this.usuarioLogueado = JSON.parse(guardado);
     }
-
     this.cargarPosts();
+    this.obtenerTituloHilo();
   }
 
   cargarPosts() {
     const token = localStorage.getItem('jwt');
     if (!token) return;
-
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
     this.http.get<Post[]>(`http://localhost:8082/api/posts/thread/${this.idHilo}`, { headers }).subscribe({
@@ -58,11 +59,9 @@ export class HiloComponent implements OnInit {
   crearPost() {
     const token = localStorage.getItem('jwt');
     if (!token || !this.usuarioLogueado) return;
-
     if (!this.nuevoPost || this.nuevoPost.trim() === '') return;
 
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
-
     const nuevo = {
       idUsuario: this.usuarioLogueado.id,
       idThread: this.idHilo,
@@ -81,7 +80,6 @@ export class HiloComponent implements OnInit {
   eliminarPost(idPost: number) {
     const token = localStorage.getItem('jwt');
     if (!token) return;
-
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
     if (confirm('¿Seguro que deseas eliminar este post?')) {
@@ -95,7 +93,6 @@ export class HiloComponent implements OnInit {
   reactivarPost(idPost: number) {
     const token = localStorage.getItem('jwt');
     if (!token) return;
-
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
     this.http.put(`http://localhost:8082/api/posts/${idPost}/activar`, {}, { headers }).subscribe({
@@ -118,5 +115,56 @@ export class HiloComponent implements OnInit {
 
   inicio() {
     this.router.navigate(['/']);
+  }
+
+  obtenerTituloHilo() {
+    const token = localStorage.getItem('jwt');
+    if (!token) return;
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    this.http.get<any[]>('http://localhost:8082/api/hilos', { headers }).subscribe({
+      next: (temas) => {
+        const hilo = temas.find(t => t.id === this.idHilo);
+        if (hilo) this.tituloHilo = hilo.titulo;
+      },
+      error: () => alert('No se pudo obtener el título del hilo')
+    });
+  }
+
+  puedeEditarHilo(): boolean {
+    if (!this.usuarioLogueado) return false;
+    return this.usuarioLogueado.rol?.nombre.toLowerCase() === 'admin' ||
+           this.posts.some(post => post.nombreUsuario === this.usuarioLogueado?.nombre);
+  }
+
+  puedeEditar(nombreUsuarioPost: string): boolean {
+    return this.puedeEliminar(nombreUsuarioPost);
+  }
+
+  editarPost(id: number, contenido: string) {
+    this.modoEdicion[id] = true;
+    this.contenidoEditado[id] = contenido;
+  }
+
+  cancelarEdicion(id: number) {
+    delete this.modoEdicion[id];
+    delete this.contenidoEditado[id];
+  }
+
+  guardarEdicion(id: number) {
+    const token = localStorage.getItem('jwt');
+    if (!token || !this.contenidoEditado[id]?.trim()) return;
+
+    const nuevoContenido = this.contenidoEditado[id].trim();
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    this.http.put(`http://localhost:8082/api/posts/${id}`, 
+      { contenido: nuevoContenido }, { headers }).subscribe({
+        next: () => {
+          this.cancelarEdicion(id);
+          this.cargarPosts();
+        },
+        error: () => alert('Error al editar el post')
+      });
   }
 }

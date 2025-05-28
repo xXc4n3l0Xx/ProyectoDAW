@@ -6,18 +6,40 @@
 
       <ul *ngIf="temas.length > 0; else sinTemas">
         <li *ngFor="let tema of temas">
-          <a [routerLink]="['/tema', tema.id]" class="tema-link">
-            <strong>{{ tema.titulo }}</strong>
-          </a>
-          <div class="lista-tema">
-            <p class="tema-info">
-              - Creado por {{ tema.nombreUsuario }} el {{ tema.creadoEn | date:'short' }}
-            </p>
-            <button *ngIf="puedeEliminar(tema.nombreUsuario)"
-                    (click)="eliminarTema(tema.id)"
-                    class="eliminar-btn">Eliminar</button>
-          </div>
-        </li>
+  <div class="lista-tema">
+    <a [routerLink]="['/tema', tema.id]" class="tema-link" *ngIf="!editandoTemaId || editandoTemaId !== tema.id">
+  {{ tema.titulo }}
+</a>
+
+
+    <input *ngIf="editandoTemaId === tema.id"
+           [(ngModel)]="tituloEditado"
+           class="input-edicion"
+           required />
+
+    <div class="acciones-tema">
+      <button *ngIf="puedeEditar(tema.nombreUsuario) && editandoTemaId !== tema.id"
+              (click)="iniciarEdicionTitulo(tema)"
+              class="btn-pequeno editar-btn">Editar título</button>
+
+      <button *ngIf="editandoTemaId === tema.id"
+              (click)="guardarTituloEditado(tema.id)"
+              class="btn-pequeno guardar-btn">Guardar</button>
+
+      <button *ngIf="editandoTemaId === tema.id"
+              (click)="cancelarEdicion()"
+              class="btn-pequeno cancelar-btn">Cancelar</button>
+
+      <button *ngIf="puedeEliminar(tema.nombreUsuario)"
+              (click)="eliminarTema(tema.id)"
+              class="btn-pequeno eliminar-btn">Eliminar</button>
+    </div>
+  </div>
+  <p class="tema-info">
+    - Creado por {{ tema.nombreUsuario }} el {{ tema.creadoEn | date:'short' }}
+  </p>
+</li>
+
       </ul>
 
       <ng-template #sinTemas>

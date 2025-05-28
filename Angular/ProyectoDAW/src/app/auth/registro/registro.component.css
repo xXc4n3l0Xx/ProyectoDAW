@@ -114,3 +114,31 @@ button:hover {
   border-radius: 5px;
   font-weight: bold;
 }
+
+.acciones-post {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-pequeno {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  width: auto;
+  min-width: 80px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #000;
+}
+
+.btn-pequeno.editar {
+  background-color: #2e7d32;
+  border: 1px solid #5ad75a;
+  color: white;
+}
+
+.btn-pequeno.eliminar {
+  background-color: #a00000;
+  border: 1px solid #ff4d4d;
+  color: white;
+}

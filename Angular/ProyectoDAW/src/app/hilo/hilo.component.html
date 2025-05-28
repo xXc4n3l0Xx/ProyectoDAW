@@ -2,19 +2,40 @@
   <div class="contenido">
 
     <div class="contenido-scrollable">
-      <h2>Posts del Hilo</h2>
+      <h2 class="titulo-hilo">Tema: {{ tituloHilo }}</h2>
 
       <ul *ngIf="posts.length > 0; else sinPosts">
         <li *ngFor="let post of posts" class="post">
           <img [src]="post.avatarUsuario" class="avatar" alt="avatar" />
+
           <div class="post-content">
-            <p><strong>{{ post.nombreUsuario }}</strong>: {{ post.contenido }}</p>
-            <div class="post-info">
-              <p><em>{{ post.fechaCreacion | date:'short' }}</em></p>
-              <button *ngIf="puedeEliminar(post.nombreUsuario)"
-                      (click)="eliminarPost(post.id)"
-                      class="eliminar-btn">Eliminar</button>
+            <div *ngIf="modoEdicion[post.id]; else vistaNormal">
+              <textarea [(ngModel)]="contenidoEditado[post.id]" rows="3" required></textarea>
+              <div class="acciones-post">
+  <button (click)="guardarEdicion(post.id)" class="btn-pequeno guardar-btn">Guardar</button>
+
+  <button (click)="cancelarEdicion(post.id)" class="btn-pequeno cancelar-btn">Cancelar</button>
+</div>
+
             </div>
+
+            <ng-template #vistaNormal>
+              <p><strong>{{ post.nombreUsuario }}</strong>: {{ post.contenido }}</p>
+            </ng-template>
+
+            <div class="post-info">
+  <p><em>{{ post.fechaCreacion | date:'short' }}</em></p>
+  <div class="acciones-post" *ngIf="!modoEdicion[post.id]">
+  <button *ngIf="puedeEditar(post.nombreUsuario)"
+          (click)="editarPost(post.id, post.contenido)"
+          class="btn-pequeno editar-btn">Editar</button>
+  <button *ngIf="puedeEliminar(post.nombreUsuario)"
+          (click)="eliminarPost(post.id)"
+          class="btn-pequeno eliminar-btn">Eliminar</button>
+</div>
+
+</div>
+
           </div>
         </li>
       </ul>
