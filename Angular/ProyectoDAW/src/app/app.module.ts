@@ -1,28 +1,31 @@
+// Importa decorador para definir un módulo de Angular
 import { NgModule } from '@angular/core';
+// Necesario para que la aplicación funcione en navegadores
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+// Permite trabajar con formularios basados en templates
 import { FormsModule } from '@angular/forms';
+// Permite realizar peticiones HTTP
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 
+// Componente raíz de la aplicación
 import { AppComponent } from './app.component';
+// Componente de la vista principal (home/login)
 import { HomeComponent } from './home/home.component';
+// Módulo que contiene la configuración de rutas
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent // Declara el componente raíz (no es standalone)
   ],
   imports: [
-    BrowserModule,
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    RouterModule,
-    HomeComponent
+    BrowserModule,     // Requerido para ejecutar la app en un navegador
+    FormsModule,       // Para manejar formularios
+    HttpClientModule,  // Para peticiones HTTP
+    AppRoutingModule,  // Importa las rutas ya configuradas
+    HomeComponent      // Componente standalone importado directamente
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [],       // Servicios globales (vacío en este caso)
+  bootstrap: [AppComponent] // Componente que arranca la app
 })
 export class AppModule {}
